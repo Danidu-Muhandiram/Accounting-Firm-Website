@@ -1,0 +1,25 @@
+.navbar-brand {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.navbar-brand span {
+  color: green;
+}
+
+.btn {
+  background-color: #87CA9C !important;
+  font-weight: 600 !important;
+}
+
+.btn:hover {
+  background-color: #5FAD85 !important;
+}
+
+body .nav-link:hover, body .nav-link:active {
+  color: #5FAD85;
+}
+
+body .nav-link {
+ font-weight: 600;
+}
