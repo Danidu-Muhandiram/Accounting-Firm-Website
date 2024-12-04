@@ -1,5 +1,10 @@
+
+.custom-navbar{
+  background-color: transparent !important;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+}
+
 .navbar-brand {
-  font-size: 3em;
   font-weight: bold;
 }
 
@@ -22,4 +27,11 @@ body .nav-link:hover, body .nav-link:active {
 
 body .nav-link {
  font-weight: 600;
+}
+
+/*slider*/
+.slide1{
+  background-image: url('main1.png');
+  background-size: cover;
+  background-position: center;
 }
