@@ -63,3 +63,12 @@ body .nav-link {
 .owl-next {
   right:0;
 }
+
+.aboutus img{
+  width: 100%;
+  height: 100%;
+}
+
+.pt-80{
+  padding-top: 80px;
+}

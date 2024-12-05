@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
   <section class="herosection">
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar fixed-top">
@@ -27,7 +27,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -88,7 +88,58 @@
    </div>
   </div>
 
+  <div class="aboutus pt-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="aboutus-image">
+            <img src="about.jpg" alt="Accounting" class="rounded-4">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="aboutus-title">
+            <h2>Where Trust Meets Precision</h2>
+          </div>
+          <div class="aboutus-content">
+            <p>At Palo Accounting, we are committed to providing the best accounting services for your business. 
+              We are here to help you with all your accounting needs. 
+              Our team of experts will work with you to ensure that your business is in compliance with all tax laws and regulations. 
+              We will help you manage your finances and make informed decisions that will help your business grow. 
+              Contact us today to learn more about our services and how we can help you succeed.</p>
 
+              <button type="button" class="btn btn-primary border border-none fs-6">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="number-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-4">
+            <h3>We have impactful numbers</h3>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center number-content-01">
+            <h1>1000+</h1>
+            <p>Happy Clients</p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center number-content-01">
+            <h1>40+</h1>
+            <p>Team Members</p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center number-content-01">
+            <h1>99%</h1>
+            <p>Client Satisfaction</p>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center number-content-01">
+            <h1>12+</h1>
+            <p>Awards</p>
+          </div>
+        </div>
+      </div>
+    </div>
   <script src="script.js"></script>
 </body>
 </html>
