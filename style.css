@@ -87,3 +87,15 @@ body .nav-link {
 .mt-n130{
   margin-top: 6px;
 }
+
+.service-icon img{
+  max-width: 300px;
+  height: auto;
+}
+
+.service-box{
+  background-color: #87CA9C;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
