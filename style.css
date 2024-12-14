@@ -117,3 +117,40 @@ body .nav-link {
 .feedback-image{
   text-align: center;
 }
+
+.footer{
+  background-color: #87CA9C;
+  padding-top: 60px;
+  color: white;
+  text-align: center;
+  margin-top: 50px; 
+  padding-bottom: 40px;
+}
+
+.footer .footer-brand{
+  color: white;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.footer-top{
+  margin-bottom: 40px;
+}
+
+.bottom-footer{
+  border-top: 1px solid white;
+  padding-top: 20px; 
+}
+
+.footer .social-links a{
+  color: #87CA9C;
+  font-size: 24px;
+  margin-left: 5px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
