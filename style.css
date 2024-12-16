@@ -1,4 +1,6 @@
-
+*{
+  font-family: "Inter", sans-serif;
+}
 .custom-navbar{
   background-color: transparent !important;
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
@@ -65,8 +67,8 @@ body .nav-link {
 }
 
 .aboutus img{
-  width: 90%;
-  height: 95%;
+  width: 95%;
+  height: 100%;
 }
 
 .aboutus .about-content{
@@ -74,10 +76,15 @@ body .nav-link {
 }
 
 .aboutus-title{
-  font-size: 2.5rem;
   font-weight: 600;
-  color: #87CA9C;
+  color: black;
   text-align: center;
+}
+
+.aboutus-title h2{
+  /*font-family: "Lora", serif;*/
+  font-size: 2.6rem;
+  font-weight: 600;
 }
 
 .content p{
@@ -94,7 +101,18 @@ body .nav-link {
   background-color: #87CA9C;
   z-index: 2;
   position: absolute;
-  padding: 30px;
+  padding: 6px 26px;
+}
+
+.number-section h3{
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.number-section h1{
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-family: "Roboto Slab", serif;
 }
 
 .mt-n130{
