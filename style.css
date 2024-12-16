@@ -59,6 +59,18 @@ body .nav-link {
   background-position: center;
 }
 
+.slider-title{
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.slider-text{
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
 /*slider Button*/
 .owl-prev, .owl-next{
   position: absolute;
@@ -71,6 +83,10 @@ body .nav-link {
   background-color: #87CA9C;
   display: grid;
   margin-top: -30px !important;
+}
+
+.slider-content a{
+  font-size: 1.4rem !important;
 }
 
 .owl-prev {
