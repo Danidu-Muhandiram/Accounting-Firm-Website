@@ -8,10 +8,22 @@
 
 .navbar-brand {
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .navbar-brand span {
   color: green;
+}
+
+.nav-item{
+  margin-right: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "Inter", sans-serif !important;
+}
+
+.blog-icon{
+  margin-right: 60px;
 }
 
 .btn {
@@ -19,6 +31,9 @@
   font-weight: 600 !important;
 }
 
+.fs-7 {
+  font-size: 1.2rem;
+}
 .btn:hover {
   background-color: #5FAD85 !important;
 }
