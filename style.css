@@ -267,3 +267,21 @@ body .nav-link {
   align-items: center;
   justify-content: center;
 }
+
+/*service page*/
+
+.left-side{
+  background-color: #87CA9C;
+}
+
+.right-side{
+  background-color: whitesmoke;
+}
+
+.service-page{
+  height: 40%;
+}
+
+.service-page img{
+  max-width: 300px;
+}
