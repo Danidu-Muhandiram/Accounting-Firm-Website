@@ -345,3 +345,7 @@ body .nav-link {
   height: 350px;
   object-fit: cover;
 }
+
+.blog-addition img{
+  height: 250px;
+}
