@@ -326,3 +326,22 @@ body .nav-link {
   line-height: 50px;
   text-align: center;
 }
+
+.blog-page{
+  padding: 50px;
+  height: 150px;
+}
+
+.blog-main{
+  padding-top: 30px;
+  width: 100%;
+}
+
+.blog-card{
+  width: 60%;
+}
+
+.blog-card img{
+  height: 350px;
+  object-fit: cover;
+}
