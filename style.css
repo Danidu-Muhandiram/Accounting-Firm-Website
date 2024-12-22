@@ -332,6 +332,10 @@ body .nav-link {
   height: 150px;
 }
 
+.blog-container{
+  background-color: whitesmoke;
+}
+
 .blog-main{
   padding-top: 30px;
   width: 100%;
