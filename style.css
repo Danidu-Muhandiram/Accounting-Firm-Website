@@ -17,7 +17,7 @@ body {
 
 .navbar-brand {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .navbar-brand span {
@@ -32,7 +32,11 @@ body {
 }
 
 .blog-icon{
-  margin-right: 60px;
+  margin-right: 50px;
+}
+
+.navbar-button{
+  margin-right: -30px !important;
 }
 
 .btn {
@@ -375,5 +379,5 @@ body .nav-link {
 .scrolled{
   background-color: whitesmoke !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  z-index: 1000;
 }
