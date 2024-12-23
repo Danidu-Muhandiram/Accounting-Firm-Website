@@ -48,7 +48,7 @@
               </li>
             </ul>
 
-            <a href="#" type="button" class="btn btn-secondary border border-none fs-7 ms-lg-3">Contact Us</a>
+            <a href="#" type="button" class="btn btn-secondary border border-none fs-7 ms-lg-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact Us</a>
           </div>
         </div>
     </nav>
@@ -297,6 +297,25 @@
       </div>
     </div>
     </div>
+
+    <!-- Contact us modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
