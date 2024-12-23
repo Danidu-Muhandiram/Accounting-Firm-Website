@@ -40,8 +40,9 @@
   background-color: #5FAD85 !important;
 }
 
-body .nav-link:hover, body .nav-link:active {
-  color: #5FAD85;
+body .nav-link:hover, 
+body .nav-link.active {
+  color: #5FAD85 !important;
 }
 
 body .nav-link {

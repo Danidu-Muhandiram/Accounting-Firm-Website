@@ -17,7 +17,25 @@ $(document).ready(function() {
                 
             }
         }
-    })
+    });
 
+    //navigation bar activation
+    $(window).on("scroll", function () {
+        //current scroll position
+        let scrollPos = $(window).scrollTop();
 
+        $("section").each(function () {
+            let sectionTop = $(this).offset().top - 10; // Adjust for navbar height
+            let sectionHeight = $(this).outerHeight();
+            let sectionId = $(this).attr("id");
+
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                // Remove 'active' class from all links
+                $(".nav-link").removeClass("active");
+                // Add 'active' class to the current link
+                $(`.nav-link[href='#${sectionId}']`).addClass("active");
+            }
+        });
+    });
 });
+  
