@@ -353,3 +353,10 @@ body .nav-link {
 .blog-addition img{
   height: 250px;
 }
+
+/*contact us*/
+
+.form-control:focus{
+  border-color: #87CA9C;
+  box-shadow: none;
+}
