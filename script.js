@@ -25,7 +25,7 @@ $(document).ready(function() {
         let scrollPos = $(window).scrollTop();
 
         $("section").each(function () {
-            let sectionTop = $(this).offset().top - 10; // Adjust for navbar height
+            let sectionTop = $(this).offset().top - 100; // Adjust for navbar height
             let sectionHeight = $(this).outerHeight();
             let sectionId = $(this).attr("id");
 
@@ -37,5 +37,13 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 50) {
+          $(".navbar").addClass("scrolled");
+        } else {
+          $(".navbar").removeClass("scrolled");
+        }
+      });
 });
   
