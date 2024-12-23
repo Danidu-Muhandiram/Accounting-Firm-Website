@@ -299,20 +299,23 @@
     </div>
 
     <!-- Contact us modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade rounded" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content rounded-4">
       
       <div class="modal-body p-0">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 bg-cover" style="background-image: url(contactimage.jpg); min-height: 300px;"></div>
+            <div class="col-lg-4 p-0">
+              <img src="contactimage.jpg" alt="Contact Us" class="img-fluid h-100 w-100" style="object-fit: cover;">
+            </div>
           <div class="col-lg-8">
             <form action="" class="row p-lg-5 gy-3">
-              <h1>We’re Just a Message Away</h1>
-              <p>Whether it’s about our services or your financial goals, 
-                we’re always ready to assist. Send us a message, and we’ll respond promptly</p>
-
+              <div class="col-12">
+                <h1>We’re Just a Message Away</h1>
+                <p>Whether it’s about our services or your financial goals, 
+                  we’re always ready to assist. Send us a message, and we’ll respond promptly</p>
+              </div>
               <div class="col-lg-6">
                   <label for="exampleFormControlInput1" class="form-label">First Name</label>
                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
