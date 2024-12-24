@@ -45,5 +45,28 @@ $(document).ready(function() {
           $(".navbar").removeClass("scrolled");
         }
       });
+
+
+    function animateCounter(id, start, end, duration) {
+        $({ countNum: start }).animate(
+            { countNum: end },
+                {
+                    duration: duration,
+                    easing: "linear",
+                    step: function () {
+                        $(id).text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                        $(id).text(this.countNum);
+                    }
+                }
+        );
+    }
+    
+        animateCounter("#counter", 0, 1000, 2000);
+        animateCounter("#counter2", 0, 40, 2000);
+        animateCounter("#counter3", 0, 99, 2000);
+        animateCounter("#counter4", 0, 50, 2000);
+    
 });
   

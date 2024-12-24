@@ -170,6 +170,10 @@ body .nav-link {
   padding: 6px 26px;
 }
 
+.number {
+  margin-left: 20px;
+}
+
 .number-section h3{
   font-size: 1.8rem;
   font-weight: 600;
