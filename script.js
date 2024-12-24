@@ -46,27 +46,56 @@ $(document).ready(function() {
         }
       });
 
+      
 
-    function animateCounter(id, start, end, duration) {
-        $({ countNum: start }).animate(
-            { countNum: end },
-                {
-                    duration: duration,
-                    easing: "linear",
-                    step: function () {
-                        $(id).text(Math.floor(this.countNum));
-                    },
-                    complete: function () {
-                        $(id).text(this.countNum);
-                    }
-                }
-        );
-    }
+
+        const $counters = $(".counter");
+        
+        function updateCounter($counter) {
+            const target = parseInt($counter.data("count"));
+            let count = 0;
+            const duration = 2000; // Duration of the animation in milliseconds
+            const stepTime = Math.abs(Math.floor(duration / target));
+        
+            const increment = () => {
+            count += 1;
+            $counter.text(count);
+            if (count < target) {
+                setTimeout(increment, stepTime);
+            } else {
+                $counter.text(target);
+            }
+            };
+        
+            increment();
+        }
     
-        animateCounter("#counter", 0, 1000, 2000);
-        animateCounter("#counter2", 0, 40, 2000);
-        animateCounter("#counter3", 0, 99, 2000);
-        animateCounter("#counter4", 0, 50, 2000);
+        function checkActivation() {
+            const scrollTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+    
+            $counters.each(function () {
+                const $counter = $(this);
+                const offsetTop = $counter.offset().top;
+    
+                // Check if the element is within view
+                    if (scrollTop + windowHeight > offsetTop - 100 && !$counter.data("activated")) {
+                        updateCounter($counter);
+                        $counter.data("activated", true); // Avoid reactivating
+                    }
+        
+                    // Reset if scrolled back
+                    if (scrollTop + windowHeight < offsetTop - 500 || scrollTop === 0) {
+                        $counter.text("0");
+                        $counter.data("activated", false);
+                    }
+                });
+        }
+    
+        // Run on load and on scroll
+        checkActivation();
+        $(window).on("scroll", checkActivation);
+        
     
 });
   
