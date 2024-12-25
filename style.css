@@ -193,7 +193,7 @@ body .nav-link {
 .service-icon img{
   max-width: 360px;
   height: auto;
-  border-radius: 10px
+  border-radius: 10px !important;
 }
 
 .service-box{
