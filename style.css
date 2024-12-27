@@ -1,5 +1,5 @@
 *{
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
 }
 
 html {
@@ -212,7 +212,7 @@ body .nav-link {
 
 .service-title h3{
   margin-top: 20px !important;
-  font-family: "Roboto Slab", serif;
+  
 }
 
 .service-content p{
@@ -335,6 +335,7 @@ body .nav-link {
 .service-page p{
   font-size: 1.2rem;
   text-align: center;
+  font-family: "Poppins", serif;
 }
 
 .number-circle {
@@ -343,11 +344,15 @@ body .nav-link {
   border-radius: 50%;
   background-color: #87CA9C;
   color: white;
-  font-size: 18px;
   font-family: Arial, sans-serif;
   display: inline-block;
   line-height: 50px;
   text-align: center;
+}
+
+.small-box p, .service-page-content p{
+  font-family: "Poppins", serif !important;
+  font-size: 1.2rem;
 }
 
 .blog-page{
