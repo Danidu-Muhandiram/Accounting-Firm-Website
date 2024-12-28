@@ -322,7 +322,7 @@ body .nav-link {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 10 10 10px rgba(0, 0, 0, 0.452);
-  width: 80%;
+  width: 85%;
   text-align: center;
   z-index: 2;
 }
@@ -333,7 +333,7 @@ body .nav-link {
 }
 
 .service-page p{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   font-family: "Poppins", serif;
 }
@@ -352,7 +352,8 @@ body .nav-link {
 
 .small-box p, .service-page-content p{
   font-family: "Poppins", serif !important;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  padding-bottom: 10px;
 }
 
 .blog-page{
