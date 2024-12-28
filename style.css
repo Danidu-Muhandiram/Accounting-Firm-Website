@@ -356,6 +356,12 @@ body .nav-link {
   padding-bottom: 10px;
 }
 
+.services{
+  background-color: white;
+}
+
+
+/*Blog Page*/
 .blog-page{
   padding: 50px;
   height: 150px;
