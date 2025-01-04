@@ -303,6 +303,15 @@ body .nav-link {
   z-index: 1;
 }
 
+.pt-7{
+  padding-top: 100px;
+}
+
+.navbar_service{
+  background-color: whitesmoke !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 .service-page img {
   width: 100%;
   height: 100%;
