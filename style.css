@@ -368,6 +368,7 @@ body .nav-link {
   display: inline-block;
   line-height: 50px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .steps h2{
@@ -375,9 +376,13 @@ body .nav-link {
 }
 
 .small-box p, .service-page-content p{
-  font-family: "Poppins", serif !important;
+  font-family: "Poppins", serif;
   font-size: 1.1rem;
   padding-bottom: 10px;
+}
+
+.service-title h3{
+  font-family: "Roboto Slab", serif;
 }
 
 .services{
