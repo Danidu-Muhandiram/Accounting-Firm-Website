@@ -456,6 +456,10 @@ body .nav-link {
   font-family: "Poppins", serif;
 }
 
+.custom-left-shift{
+  margin-left: -80px;
+}
+
 /*contact us*/
 
 .form-control:focus{
