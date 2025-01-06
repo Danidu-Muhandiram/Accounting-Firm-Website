@@ -381,7 +381,7 @@ body .nav-link {
   padding-bottom: 10px;
 }
 
-.service-title h3{
+.service-title h3, .Additional_title{
   font-family: "Roboto Slab", serif;
 }
 
@@ -419,13 +419,41 @@ body .nav-link {
 }
 
 .blog-addition img{
-  height: 250px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .scroll-box{
   height: 620px;
   width: 410px;
   overflow-y: scroll;
+}
+
+/* Style for Webkit browsers (Chrome, Edge, Safari) */
+.scroll-box::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: #5FAD85; /* Scrollbar color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background-color: #87CA9C; /* Color on hover */
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Scrollbar track color */
+  border-radius: 4px;
+}
+
+.card-body h2, h5{
+  font-family: "Roboto Slab", serif;
+}
+
+.card-body p, p{
+  font-family: "Poppins", serif;
 }
 
 /*contact us*/
