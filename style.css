@@ -345,14 +345,14 @@ body .nav-link {
   z-index: 2;
 }
 
-.service-page h1{
+.service-page h1, .blog-page h1{
   font-size: 2.8rem;
   font-weight: 600;
   /*font-family: Arial, sans-serif;*/
   font-family: "Roboto Slab", serif;
 }
 
-.service-page p{
+.service-page p, .blog-page p{
   font-size: 1.4rem;
   text-align: center;
   font-family: "Poppins", serif;
@@ -393,7 +393,11 @@ body .nav-link {
 /*Blog Page*/
 .blog-page{
   padding: 50px;
-  height: 150px;
+  height: 220px;
+}
+
+.blog-page h1{
+  margin-top: 55px;
 }
 
 .blog-container{
@@ -418,6 +422,11 @@ body .nav-link {
   height: 250px;
 }
 
+.scroll-box{
+  height: 620px;
+  overflow-y: scroll;
+}
+
 /*contact us*/
 
 .form-control:focus{
@@ -432,3 +441,4 @@ body .nav-link {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
