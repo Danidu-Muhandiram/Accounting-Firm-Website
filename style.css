@@ -411,11 +411,31 @@ body .nav-link {
 
 .blog-card{
   width: 60%;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .blog-card img{
   height: 350px;
   object-fit: cover;
+}
+
+.blog-card .card-img-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.blog-card .card-body {
+  padding: 20px 30px;
+}
+
+.blog-card .btn-primary {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
 }
 
 .blog-addition img{
@@ -425,7 +445,6 @@ body .nav-link {
 
 .scroll-box{
   height: 480px;
-  
   overflow-y: scroll;
 }
 
@@ -463,7 +482,8 @@ body .nav-link {
 .Additional_blog{
   background-color: white;
   height: 600px;
-  
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /*contact us*/
