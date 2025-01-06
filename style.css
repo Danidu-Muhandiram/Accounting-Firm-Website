@@ -424,6 +424,7 @@ body .nav-link {
 
 .scroll-box{
   height: 620px;
+  width: 410px;
   overflow-y: scroll;
 }
 
