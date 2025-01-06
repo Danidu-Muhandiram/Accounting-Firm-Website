@@ -444,7 +444,7 @@ body .nav-link {
 }
 
 .scroll-box{
-  height: 480px;
+  height: 540px;
   overflow-y: scroll;
 }
 
@@ -481,9 +481,13 @@ body .nav-link {
 
 .Additional_blog{
   background-color: white;
-  height: 600px;
+  height: 673px;
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#blog{
+  background-color: whitesmoke;
 }
 
 /*contact us*/
