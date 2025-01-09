@@ -178,8 +178,12 @@ body .nav-link {
   font-family: "Poppins", serif;
 }
 
-.pt-100{
-  padding-top: 100px;
+.pt-6{
+  padding-top: 80px;
+}
+
+.mb-6{
+  padding-bottom: 80px;
 }
 
 .number-section{
@@ -550,6 +554,9 @@ body .nav-link {
     padding-top: 25px;
   }
 
+  .aboutus{
+    padding: 80px 20px 80px 20px;
+  }
 }
 
 /* Small (sm): ≥ 576px */
@@ -586,8 +593,11 @@ body .nav-link {
 
 /* Large (lg): ≥ 992px */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .number-section {
-    margin-top: 20px;
+  
+  .aboutus img{
+    width: 95%;
+    height: 100%;
+    object-fit: cover;
   }
   /* Styles for large screens */
 }
