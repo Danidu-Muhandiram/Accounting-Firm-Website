@@ -142,6 +142,7 @@ body .nav-link {
 }
 
 /*About Us*/
+
 .aboutus img{
   width: 95%;
   height: 100%;
@@ -149,6 +150,12 @@ body .nav-link {
 
 .aboutus .about-content{
   position: relative;
+}
+
+.aboutus::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .aboutus-title{
@@ -178,7 +185,6 @@ body .nav-link {
 .number-section{
   background-color: #87CA9C;
   z-index: 2;
-  position: absolute;
   padding: 15px 26px;
 }
 
@@ -206,6 +212,10 @@ body .nav-link {
   width: 100%;
   height: auto;
   border-radius: 10px !important;
+}
+
+#Services{
+  background-color: whitesmoke;
 }
 
 .service-box{
@@ -571,12 +581,14 @@ body .nav-link {
     padding-top: 10px;
   }
 
-  
+
 }
 
 /* Large (lg): ≥ 992px */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  
+  .number-section {
+    margin-top: 20px;
+  }
   /* Styles for large screens */
 }
 
