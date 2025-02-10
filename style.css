@@ -376,6 +376,8 @@ body .nav-link {
 .service-page h1, .blog-page h1{
   font-size: 2.8rem;
   font-weight: 600;
+  font-family: "Poppins", serif;
+
 }
 
 .service-page p, .blog-page p{
@@ -428,7 +430,6 @@ body .nav-link {
 
 .blog-page h1{
   margin-top: 55px;
-  font-family: "Poppins", serif;
 }
 
 .blog-container{
@@ -587,6 +588,19 @@ body .nav-link {
   .feedback{
     padding: 20px;
   }
+
+  .service-page h1{
+    font-size: 2.4rem;
+  }
+
+  .service-page p{
+    font-size: 1.15rem;
+    padding: 0px 20px 10px 20px;
+  }
+
+  .container-fluid{
+    height: 350px;
+  }
 }
 
 /* Small (sm): ≥ 576px */
@@ -618,6 +632,9 @@ body .nav-link {
     padding-top: 10px;
   }
 
+  .container-fluid{
+    height: 350px;
+  }
 
 }
 
@@ -629,7 +646,11 @@ body .nav-link {
     height: 100%;
     object-fit: cover;
   }
-  /* Styles for large screens */
+
+  .container-fluid{
+    height: 350px;
+  }
+
 }
 
 /* Extra Large (xl): ≥ 1200px */
