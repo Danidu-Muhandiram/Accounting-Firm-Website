@@ -434,6 +434,7 @@ body .nav-link {
 
 .blog-container{
   background-color: whitesmoke;
+  width: 100%;
 }
 
 .blog-main{
@@ -482,6 +483,11 @@ body .nav-link {
 .scroll-box{
   height: 540px;
   overflow-y: scroll;
+}
+
+.custom-left-shift {
+  padding-left: -100px; /* Adjust as needed */
+  margin-left: -110px; /* Helps simulate negative padding */
 }
 
 /* Style for Webkit browsers (Chrome, Edge, Safari) */
