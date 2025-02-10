@@ -462,10 +462,6 @@ body .nav-link {
   font-family: "Poppins", serif;
 }
 
-.blog-card .card-body{
-  padding: 20px 30px;
-}
-
 .blog-card .card-body p, .card-body .card-text{
   font-family: "Inter", sans-serif;
 }
@@ -513,10 +509,6 @@ body .nav-link {
 
 .card-body p, p{
   font-family: "Poppins", serif;
-}
-
-.custom-left-shift{
-  margin-left: -80px;
 }
 
 .Additional_blog{
