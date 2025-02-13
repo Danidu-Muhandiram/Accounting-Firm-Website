@@ -92,9 +92,20 @@ $(document).ready(function() {
                 });
         }
     
-        // Run on load and on scroll
         checkActivation();
         $(window).on("scroll", checkActivation);
+        
+
+        //about us animations
+        $(window).on("scroll", function() {
+            $(".aboutus").each(function() {
+              var elementTop = $(this).offset().top;
+              var windowBottom = $(window).scrollTop() + $(window).height();
+              if (windowBottom > elementTop + 150) {
+                $(this).addClass("aboutus-animation");
+              }
+            });
+        });
         
     
 });
