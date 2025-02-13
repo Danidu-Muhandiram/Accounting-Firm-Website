@@ -155,7 +155,7 @@ body .nav-link {
 
 /*About Us*/
 
-.aboutus{
+.aboutus, .services, .feedback{
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease-out, transform 2s ease-out;

@@ -98,7 +98,7 @@ $(document).ready(function() {
 
         //about us animations
         $(window).on("scroll", function() {
-            $(".aboutus").each(function() {
+            $(".aboutus, .services, .feedback").each(function() {
               var elementTop = $(this).offset().top;
               var windowBottom = $(window).scrollTop() + $(window).height();
               if (windowBottom > elementTop + 150) {
