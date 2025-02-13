@@ -106,7 +106,18 @@ $(document).ready(function() {
               }
             });
         });
+
+        //service section boxes
+        $(".service-box").hide();
+        $(".service-box").eq(0).fadeIn(1000).addClass("service-box-show");
         
+        setTimeout(function(){
+            $(".service-box").eq(1).fadeIn(1000).addClass("service-box-show");
+        }, 1000);
+
+        setTimeout(function(){
+            $(".service-box").eq(2).fadeIn(1000).addClass("service-box-show");
+        }, 2000);
     
 });
   

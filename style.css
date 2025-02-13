@@ -255,6 +255,14 @@ body .nav-link {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.service-box-show{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*SERVICE AND FEEDBACK TITLE FONT SIZE*/
