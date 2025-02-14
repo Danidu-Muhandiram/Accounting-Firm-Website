@@ -108,16 +108,24 @@ $(document).ready(function() {
         });
 
         //service section boxes
-        $(".service-box").hide();
-        $(".service-box").eq(0).fadeIn(1000).addClass("service-box-show");
-        
-        setTimeout(function(){
-            $(".service-box").eq(1).fadeIn(1000).addClass("service-box-show");
-        }, 1000);
+        $(".service-box").css("opacity", "0");
 
-        setTimeout(function(){
-            $(".service-box").eq(2).fadeIn(1000).addClass("service-box-show");
-        }, 2000);
-    
+        function revealServices() {
+            var sectionTop = $(".services").offset().top;
+            var windowBottom = $(window).scrollTop() + $(window).height();
+
+            if (windowBottom > sectionTop + 100) { 
+            $(".service-box").each(function (index) {
+                setTimeout(() => {
+                $(this).fadeTo(1000, 1).addClass("service-box-show");
+                }, index * 1500);
+            });
+
+            $(window).off("scroll", revealServices);
+            }
+        }
+
+        $(window).on("scroll", revealServices);
+            
 });
   
