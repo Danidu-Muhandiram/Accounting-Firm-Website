@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-.navbar{
+.navbar-animations{
   opacity: 0;
   animation: fadeInNav 4.5s ease-out forwards;
 }
@@ -408,6 +408,7 @@ body .nav-link {
   font-size: 2.8rem;
   font-weight: 600;
   font-family: "Poppins", serif;
+  animation: fadeSlide 2.5s ease-out forwards;
 
 }
 
@@ -415,6 +416,7 @@ body .nav-link {
   font-size: 1.5rem;
   text-align: center;
   font-family: "Inter", sans-serif;
+  animation: fadeSlide 2.5s ease-out forwards;
 }
 
 .number-circle {
@@ -427,6 +429,11 @@ body .nav-link {
   line-height: 50px;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.steps-show{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .steps h2{

@@ -115,7 +115,7 @@ $(document).ready(function() {
             var windowBottom = $(window).scrollTop() + $(window).height();
 
             if (windowBottom > sectionTop + 100) { 
-            $(".service-box").each(function (index) {
+            $(".service-box-animation").each(function (index) {
                 setTimeout(() => {
                 $(this).fadeTo(1000, 1).addClass("service-box-show");
                 }, index * 1500);
@@ -126,6 +126,17 @@ $(document).ready(function() {
         }
 
         $(window).on("scroll", revealServices);
+
+
+        //steps animations in service page
+        $(".steps").css("opacity", "0");
+
+            $(".steps").each(function (index) {
+                setTimeout(() => {
+                $(this).fadeTo(1000, 1).addClass("steps-show");
+                }, index * 1000);
+            });
+
             
 });
   
