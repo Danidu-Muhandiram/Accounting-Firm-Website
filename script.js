@@ -115,7 +115,7 @@ $(document).ready(function() {
             var windowBottom = $(window).scrollTop() + $(window).height();
 
             if (windowBottom > sectionTop + 100) { 
-            $(".service-box-animation").each(function (index) {
+            $(".service-box").each(function (index) {
                 setTimeout(() => {
                 $(this).fadeTo(1000, 1).addClass("service-box-show");
                 }, index * 1500);

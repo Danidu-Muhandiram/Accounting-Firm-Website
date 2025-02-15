@@ -478,6 +478,7 @@ body .nav-link {
 .blog-main{
   padding-top: 30px;
   width: 100%;
+  animation: fadeSlide 2.5s ease-out forwards;
 }
 
 .blog-card{
