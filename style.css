@@ -81,6 +81,22 @@ body .nav-link {
 
 /*slider*/
 
+.welcome-box{
+  background-color: #87CA9C;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 10px 8px 10px;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.welcome-box h5{
+  margin: 0;
+  font-family: "Poppins", serif;
+}
+
 #hero-slider{
   background-image: url('bgimage.png');
   background-size: cover;
@@ -113,9 +129,9 @@ body .nav-link {
 .slider-content h1{
   font-size: 4.1rem;
   font-weight: 600;
-  margin-top: 80px;
   margin-bottom: 30px;
   font-family: "Poppins", serif;
+  margin-top: 15px;
   animation: fadeSlide 2.5s ease-out forwards;
   
 }
