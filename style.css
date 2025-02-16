@@ -82,7 +82,7 @@ body .nav-link {
 /*slider*/
 
 .welcome-box{
-  background-color: #87CA9C;
+  background-color: rgba(135, 202, 156, 0.8);
   color: white;
   border-radius: 8px;
   padding: 8px 10px 8px 10px;
@@ -90,11 +90,15 @@ body .nav-link {
   margin: 0 auto;
   text-align: center;
   margin-top: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: fadeSlide 2.5s ease-out forwards;
 }
 
 .welcome-box h5{
   margin: 0;
   font-family: "Poppins", serif;
+  letter-spacing: 1.5px;
+  font-size: 1.12rem;
 }
 
 #hero-slider{
@@ -787,10 +791,11 @@ body .nav-link {
   mask-repeat: no-repeat;
 
   position: absolute;
-  top: 5%;
+  top: 3%;
   width: 100%;
   max-width: 150px; 
-  left: 5%; 
+  left: 4%;
+  animation: fadeSlideImg 2s ease-out forwards;
 }
 }
 
@@ -807,7 +812,7 @@ body .nav-link {
   
   width: 140px;
   aspect-ratio: 1;
-  background: #87CA9C;
+  background-color: rgba(135, 202, 156, 0.7);
   border-radius: var(--r);
   --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
   --_g:conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),#0000 25%,#000 0);
@@ -822,10 +827,11 @@ body .nav-link {
   mask-repeat: no-repeat;
 
   position: absolute;
-  top: 5%;
+  top: 3%;
   width: 100%;
-  max-width: 150px; 
-  left: 5%; 
+  max-width: 130px; 
+  left: 4%; 
+  animation: fadeSlideImg 2s ease-out forwards;
 }
  
 }
