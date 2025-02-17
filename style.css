@@ -123,15 +123,29 @@ body .nav-link {
   position: relative;
 }
 
+.slider-image::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 98%;
+  height: 110%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: -1;
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  animation: fadeSlideImgLayer 2s ease-out forwards;
+}
+
 .slider-image img{
   width: 105%;
   height: 110%;
   box-shadow: 0px 4px 10px rgba(135, 202, 156, 0.5);
   animation: fadeSlideImg 2s ease-out forwards;
+  
 }
 
 .slider-image2 img{
-  height: 120%;
+  height: 115%;
 }
 
 .slider-content h1{
@@ -812,7 +826,7 @@ body .nav-link {
   
   width: 140px;
   aspect-ratio: 1;
-  background-color: rgba(135, 202, 156, 0.7);
+  background-color: rgba(135, 202, 156, 1);
   border-radius: var(--r);
   --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
   --_g:conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),#0000 25%,#000 0);
@@ -856,7 +870,18 @@ body .nav-link {
 
 @keyframes fadeSlideImg {
   from {
-    opacity: 0;
+    opacity: 0.6;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideImgLayer {
+  from {
+    opacity: 0.8;
     transform: translateY(-30px);
   }
   to {
