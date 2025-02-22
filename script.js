@@ -25,7 +25,7 @@ $(document).ready(function() {
         let scrollPos = $(window).scrollTop();
 
         $("section").each(function () {
-            let sectionTop = $(this).offset().top - 100; // Adjust for navbar height
+            let sectionTop = $(this).offset().top - 0; // Adjust for navbar height
             let sectionHeight = $(this).outerHeight();
             let sectionId = $(this).attr("id");
 
