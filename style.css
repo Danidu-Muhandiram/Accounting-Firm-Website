@@ -310,11 +310,22 @@ body .nav-link {
 
 .service-box-hover{
   transition: transform 0.3s ease-in-out;
+
 }
 
-.service-box-hover:hover{
+.service-box-hover:hover, .hide-button{
   transform: scale(1.05);
+  bottom: 10px;
 }
+
+.hide-button{
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.3s ease-in-out;
+}
+
 
 /*SERVICE AND FEEDBACK TITLE FONT SIZE*/
 .services-title h4, .feedback-title h4{
