@@ -19,32 +19,35 @@ $(document).ready(function() {
         }
     });
 
-    //navigation bar activation
-    $(window).on("scroll", function () {
-        //current scroll position
-        let scrollPos = $(window).scrollTop();
+    //changing navigation bar
+    $(window).on("scroll", function(){
+        if ($(this).scrollTop()>45){
+            $(".custom-navbar").addClass("scrolled");
+        }
 
-        $("section").each(function () {
-            let sectionTop = $(this).offset().top - 0; // Adjust for navbar height
-            let sectionHeight = $(this).outerHeight();
-            let sectionId = $(this).attr("id");
-
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                // Remove 'active' class from all links
-                $(".nav-link").removeClass("active");
-                // Add 'active' class to the current link
-                $(`.nav-link[href='#${sectionId}']`).addClass("active");
-            }
-        });
+        else{
+            $(".custom-navbar").removeClass("scrolled");
+        }
     });
 
-    $(window).on("scroll", function () {
-        if ($(this).scrollTop() > 50) {
-          $(".navbar").addClass("scrolled");
-        } else {
-          $(".navbar").removeClass("scrolled");
+
+    function updateActiveNav() {
+    let scrollPos = $(window).scrollTop();
+
+    $("[id]").each(function () {
+        let sectionTop = $(this).offset().top; 
+        let sectionHeight = $(this).outerHeight();
+        let sectionId = $(this).attr("id");
+
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            $(".nav-link").removeClass("active");
+            $(`.nav-link[href='#${sectionId}']`).addClass("active");
         }
-      });
+    });
+}
+
+updateActiveNav();
+$(window).on("scroll", updateActiveNav);
 
       
 
