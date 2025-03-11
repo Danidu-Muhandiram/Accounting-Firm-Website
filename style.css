@@ -301,8 +301,10 @@ body .nav-link {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   opacity: 0;
-  transform: translateY(50px);
   transition: opacity 1s ease-out, transform 1s ease-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 60px;
 }
 
 .service-box:hover{
@@ -311,25 +313,27 @@ body .nav-link {
 
 .service-box-show{
   opacity: 1;
-  transform: translateY(0);
 }
 
 .service-box-hover{
   transition: transform 0.3s ease-in-out;
-
 }
 
-.service-box-hover:hover, .hide-button{
+.service-box-hover:hover {
   transform: scale(1.05);
-  bottom: 10px;
 }
 
-.hide-button{
+.hide-button {
   position: absolute;
   bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: bottom 0.3s ease-in-out;
+  transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.service-box:hover .hide-button {
+  bottom: 20px;
+  opacity: 1;
+  transform: translateX(-50%) scale(1.1);
 }
 
 
