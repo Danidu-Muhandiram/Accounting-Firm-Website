@@ -33,17 +33,27 @@ $(document).ready(function() {
 
     function updateActiveNav() {
     let scrollPos = $(window).scrollTop();
+    let navbarheight = 50;
+    let activestatus = false;
+    let firstSection = $("section:first").attr("id");
 
     $("[id]").each(function () {
         let sectionTop = $(this).offset().top; 
         let sectionHeight = $(this).outerHeight();
         let sectionId = $(this).attr("id");
 
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        if (scrollPos >= sectionTop - navbarheight && scrollPos < sectionTop + sectionHeight - navbarheight) {
             $(".nav-link").removeClass("active");
             $(`.nav-link[href='#${sectionId}']`).addClass("active");
+            activestatus = true;
         }
+
     });
+
+    if(!activestatus){
+        $(".nav-link").removeClass("active");
+        $(`.nav-link[href='#${firstSection}']`).addClass("active");
+    }
 }
 
 updateActiveNav();
