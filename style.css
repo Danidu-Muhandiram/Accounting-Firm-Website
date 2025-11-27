@@ -882,7 +882,7 @@ body .nav-link {
 .service-box{
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 20px 18px 50px 18px;
+  padding: 20px 18px 45px 18px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
@@ -891,7 +891,7 @@ body .nav-link {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  min-height: 280px;
+  min-height: 275px;
   z-index: 2;
 }
 
@@ -980,7 +980,8 @@ body .nav-link {
 
 .service-box .btn {
   opacity: 0;
-  transform: translateY(10px);
+  visibility: hidden;
+  transform: translateY(15px);
   transition: all 0.3s ease;
   position: relative;
   bottom: 0;
@@ -988,6 +989,7 @@ body .nav-link {
 
 .service-box:hover .btn {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
@@ -1056,7 +1058,7 @@ body .nav-link {
 
 .service-content {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .service-content p{
