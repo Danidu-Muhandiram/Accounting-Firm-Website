@@ -1164,6 +1164,13 @@ body .nav-link {
   transform: translateY(0) !important;
 }
 
+/* Make buttons always visible on services page */
+.bg-light .service-box .service-card-btn {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
 
 .services .btn {
   background: linear-gradient(135deg, #87CA9C, #5FAD85) !important;
