@@ -920,6 +920,8 @@ body .nav-link {
 .service-icon-wrapper {
   position: relative;
   margin-bottom: 15px;
+  width: 100%;
+  height: 200px;
 }
 
 .service-icon-bg {
@@ -952,10 +954,11 @@ body .nav-link {
   border-radius: 12px !important;
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: block;
+  position: relative;
 }
 
 .service-icon img {
@@ -964,6 +967,8 @@ body .nav-link {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .service-box:hover .service-icon img {
@@ -1153,6 +1158,13 @@ body .nav-link {
   z-index: 1;
 }
 
+/* Ensure service boxes are visible on services page */
+.bg-light .service-box {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
 .services .btn {
   background: linear-gradient(135deg, #87CA9C, #5FAD85) !important;
   color: white !important;
@@ -1324,18 +1336,14 @@ body .nav-link {
 
 
 /*service page*/
-.container-fluid {
-  padding: 0;
-  margin: 0;
-  position: relative;
-  width: 100vw;
-  height: 320px;
-  background-color: #87CA9C;
+.container-fluid.service-page {
+  min-height: 380px;
+  background: linear-gradient(135deg, #87CA9C, #5FAD85);
   z-index: 1;
 }
 
-.pt-7{
-  padding-top: 120px;
+.mt-n5 {
+  margin-top: -100px;
 }
 
 .navbar_service{
@@ -1350,77 +1358,105 @@ body .nav-link {
   object-fit: cover;
 }
 
-.small-box-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -80px;
-  margin-bottom: 50px;
+.w-90 {
+  width: 90%;
 }
 
-.small-box{
-  background-color: whitesmoke;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 10 10 10px rgba(0, 0, 0, 0.452);
-  width: 85%;
-  text-align: center;
-  z-index: 2;
+@media (min-width: 992px) {
+  .w-lg-90 {
+    width: 90%;
+  }
 }
 
 .service-page h1, .blog-page h1{
-  font-size: 2.8rem;
-  font-weight: 600;
   font-family: "Poppins", sans-serif;
+  color: #2c3e50;
   animation: fadeSlide 2.5s ease-out forwards;
-
 }
 
 .service-page p, .blog-page p{
-  font-size: 1.5rem;
-  text-align: center;
   font-family: "Inter", sans-serif;
   animation: fadeSlide 2.5s ease-out forwards;
 }
 
 .number-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #87CA9C;
-  color: white;
-  display: inline-block;
-  line-height: 50px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.steps-show{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.steps h2{
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #87CA9C, #5FAD85);
+  font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 15px rgba(135, 202, 156, 0.3);
+  transition: all 0.3s ease;
 }
 
-.steps .short-paragraph{
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
+@media (min-width: 768px) {
+  .number-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 1.3rem;
+  }
 }
 
-.small-box p, .service-page-content p{
-  font-family: "Inter", sans-serif;
-  font-size: 1.25rem;
-  padding-bottom: 10px;
+.steps-hover {
+  transition: all 0.3s ease;
+}
+
+.steps-hover:hover {
+  background: rgba(135, 202, 156, 0.05) !important;
+  transform: translateY(-5px);
+}
+
+.steps-hover:hover .number-circle {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(135, 202, 156, 0.4);
+}
+
+.steps-hover:hover h2 {
+  color: #5FAD85;
 }
 
 .service-title h3, .Additional_title{
   font-family: "Poppins", sans-serif;
 }
 
-.services{
-  background-color: white;
+/* Glass service cards - more specific selector */
+.glass-service-hover .service-icon-wrapper,
+.bg-white.rounded-4 .service-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(135, 202, 156, 0.1), rgba(95, 173, 133, 0.15));
+  transition: all 0.3s ease;
+}
+
+.glass-service-hover .service-icon-wrapper i,
+.bg-white.rounded-4 .service-icon-wrapper i {
+  color: #87CA9C;
+  transition: all 0.3s ease;
+}
+
+.glass-service-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-service-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(135, 202, 156, 0.15) !important;
+  border-color: rgba(135, 202, 156, 0.3) !important;
+}
+
+.glass-service-hover:hover .service-icon-wrapper,
+.bg-white.rounded-4:hover .service-icon-wrapper {
+  background: linear-gradient(135deg, #87CA9C, #5FAD85);
+  transform: scale(1.1);
+}
+
+.glass-service-hover:hover .service-icon-wrapper i,
+.bg-white.rounded-4:hover .service-icon-wrapper i {
+  color: white;
+}
+
+.glass-service-hover:hover h3 {
+  color: #5FAD85;
 }
 
 
@@ -1787,17 +1823,53 @@ body .nav-link {
     padding: 20px;
   }
 
-  .service-page h1{
-    font-size: 2.4rem;
+  .container-fluid.service-page{
+    min-height: 300px;
   }
 
-  .service-page p{
-    font-size: 1.15rem;
-    padding: 0px 20px 10px 20px;
+  .service-page h1 {
+    font-size: 2rem !important;
   }
 
-  .container-fluid{
-    height: 350px;
+  .service-page p {
+    font-size: 1rem !important;
+  }
+
+  .mt-n5 {
+    margin-top: -60px;
+  }
+
+  .number-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .steps-hover h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .steps-hover p {
+    font-size: 0.9rem !important;
+  }
+
+  .glass-service-hover .service-icon-wrapper,
+  .bg-white.rounded-4 .service-icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .glass-service-hover .service-icon-wrapper i,
+  .bg-white.rounded-4 .service-icon-wrapper i {
+    font-size: 2rem !important;
+  }
+
+  .glass-service-hover h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .glass-service-hover p {
+    font-size: 0.9rem !important;
   }
 
   .custom-left-shift {
