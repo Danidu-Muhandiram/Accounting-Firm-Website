@@ -213,5 +213,24 @@ document.addEventListener('mouseup', () => {
   isDragging = false;
   chatbotToggle.style.transition = '';
 });
+
+    // Scroll Indicator Functionality
+    $('.scroll-indicator').click(function() {
+        $('html, body').animate({
+            scrollTop: $('.aboutus').offset().top - 80
+        }, 800);
+    });
+
+    // Hide scroll indicator when scrolling down
+    $(window).scroll(function() {
+        var scrollPosition = $(this).scrollTop();
+        var heroHeight = $('.slider-wrapper').height();
+        
+        if (scrollPosition > heroHeight * 0.3) {
+            $('.scroll-indicator').fadeOut(300);
+        } else {
+            $('.scroll-indicator').fadeIn(300);
+        }
+    });
             
 });
