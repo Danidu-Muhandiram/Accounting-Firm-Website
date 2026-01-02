@@ -187,5 +187,31 @@ chatbotSend.addEventListener('click', () => {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 });
+
+// Make chatbot toggle button draggable
+let isDragging = false;
+let offsetX, offsetY;
+
+chatbotToggle.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - chatbotToggle.getBoundingClientRect().left;
+  offsetY = e.clientY - chatbotToggle.getBoundingClientRect().top;
+  chatbotToggle.style.transition = 'none';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+    chatbotToggle.style.left = `${x}px`;
+    chatbotToggle.style.top = `${y}px`;
+    chatbotToggle.style.position = 'fixed';
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  chatbotToggle.style.transition = '';
+});
             
 });
