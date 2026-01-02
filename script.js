@@ -151,5 +151,41 @@ $(window).on("scroll", updateActiveNav);
             });
 
             
+        // Chatbot functionality
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbot = document.getElementById('chatbot');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotSend = document.getElementById('chatbot-send');
+const chatbotText = document.getElementById('chatbot-text');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+// Toggle chatbot visibility
+chatbotToggle.addEventListener('click', () => {
+  if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+    chatbot.style.display = 'flex';
+  } else {
+    chatbot.style.display = 'none';
+  }
 });
-  
+
+chatbotClose.addEventListener('click', () => {
+  chatbot.style.display = 'none';
+});
+
+// Send message
+chatbotSend.addEventListener('click', () => {
+  const userMessage = chatbotText.value.trim();
+  if (userMessage) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = userMessage;
+    messageElement.style.margin = '5px 0';
+    messageElement.style.padding = '8px';
+    messageElement.style.background = '#f1f1f1';
+    messageElement.style.borderRadius = '5px';
+    chatbotMessages.appendChild(messageElement);
+    chatbotText.value = '';
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+});
+            
+});
