@@ -10,22 +10,22 @@
 │
 └── HUMAN_HANDOFF*/
 
-const flows = {
-  WELCOME: {
-    message: "Welcome to our accounting firm. How can we assist you?",
-    options: [
-      { text: "Tax Services", next: "TAX" },
-      { text: "Accounting & Bookkeeping", next: "ACCOUNTING" },
-      { text: "Talk to an Accountant", next: "HUMAN_HANDOFF" }
-    ]
-  },
 
-  TAX: {
-    message: "Are you an Individual or a Business?",
-    options: [
-      { text: "Individual Tax", next: "INDIVIDUAL_TAX" },
-      { text: "Business Tax", next: "BUSINESS_TAX" }
-    ]
-  }
-};
+//chatbot ui related functions (DOM handling only)
+function addBotMessage(text) {
+  // render bot message
+}
+
+function addUserMessage(text) {
+  // render user message
+}
+
+function showOptions(options) {
+  // create buttons
+}
+
+function clearOptions() {
+  // clear buttons
+}
+
 
