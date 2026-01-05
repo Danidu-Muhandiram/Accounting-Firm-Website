@@ -11,21 +11,36 @@
 └── HUMAN_HANDOFF*/
 
 
-//chatbot ui related functions (DOM handling only)
-function addBotMessage(text) {
-  // render bot message
+// Adds a new message to the chat interface.
+// creates a message element, assigns it as a bot or user message,
+// sets the message text, and appends it to the chat messages area.
+function addMessage(text, sender = "bot") {
+  const div = document.createElement("div");
+  div.className = sender;
+  div.innerText = text;
+  messages.appendChild(div);
+
+  //moves the scroll position to the bottom
+  messages.scrollTop = messages.scrollHeight;
 }
 
-function addUserMessage(text) {
-  // render user message
+// Displays a list of options as buttons for the user to select from.
+// and attaches click actions to each button.
+function showOptions(optionList) {
+  options.innerHTML = "";
+
+  optionList.forEach(option => {
+    const btn = document.createElement("button");
+    btn.innerText = option.text;
+    btn.addEventListener("click", option.action);
+    options.appendChild(btn);
+  });
 }
 
-function showOptions(options) {
-  // create buttons
-}
-
+// Clears all option buttons from the chat interface.
 function clearOptions() {
-  // clear buttons
+  options.innerHTML = "";
 }
+
 
 
