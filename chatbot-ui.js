@@ -17,7 +17,29 @@
 function addMessage(text, sender = "bot") {
   const div = document.createElement("div");
   div.className = sender;
-  div.innerText = text;
+  
+  // Add timestamp for bot messages
+  if (sender === "bot") {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    
+    const messageText = document.createElement("div");
+    messageText.innerText = text;
+    
+    const timestamp = document.createElement("div");
+    timestamp.className = "timestamp";
+    timestamp.innerText = timeString;
+    timestamp.style.fontSize = "0.7em";
+    timestamp.style.color = "#666";
+    timestamp.style.marginTop = "4px";
+    timestamp.style.textAlign = "right";
+    
+    div.appendChild(messageText);
+    div.appendChild(timestamp);
+  } else {
+    div.innerText = text;
+  }
+  
   messages.appendChild(div);
 
   //moves the scroll position to the bottom

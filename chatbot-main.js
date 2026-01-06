@@ -19,6 +19,20 @@ const sendButton = document.getElementById("chatbot-send");
 
 //start chatbot
 
+// Add date header
+const dateHeader = document.createElement("div");
+dateHeader.style.textAlign = "center";
+dateHeader.style.padding = "10px 0";
+dateHeader.style.color = "#666";
+dateHeader.style.fontSize = "0.9em";
+dateHeader.style.borderBottom = "1px solid #e0e0e0";
+dateHeader.style.marginBottom = "10px";
+
+const today = new Date();
+const dateString = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+dateHeader.innerText = `Today - ${dateString}`;
+
+messages.insertBefore(dateHeader, messages.firstChild);
 
 // Render initial state
 renderState("HOME");
