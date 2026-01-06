@@ -42,3 +42,32 @@ inputField.addEventListener("keypress", (e) => {
     sendButton.click();
   }
 });
+
+// Adjust close button placement and add clear button next to it
+const closeButton = document.getElementById("chatbot-close");
+closeButton.style.position = "absolute";
+closeButton.style.top = "10px";
+closeButton.style.right = "10px";
+
+//clear button to remove chat messages
+const clearButton = document.createElement("button");
+
+//// direct js styles
+clearButton.innerText = "Clear";
+clearButton.style.background = "none";
+clearButton.style.border = "none";
+clearButton.style.color = "#fff";
+clearButton.style.fontSize = "14px";
+clearButton.style.cursor = "pointer";
+clearButton.style.position = "absolute";
+clearButton.style.top = "10px";
+clearButton.style.right = "50px";
+
+const header = document.getElementById("chatbot-header");
+header.appendChild(clearButton);
+
+// Clear all messages when the Clear button is clicked
+clearButton.addEventListener("click", () => {
+  const messages = document.getElementById("chatbot-messages");
+  messages.innerHTML = "";
+});
