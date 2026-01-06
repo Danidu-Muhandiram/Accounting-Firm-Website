@@ -21,7 +21,7 @@ const sendButton = document.getElementById("chatbot-send");
 
 
 // Render initial state
-renderState("WELCOME");
+renderState("HOME");
 
 
 //user input handling

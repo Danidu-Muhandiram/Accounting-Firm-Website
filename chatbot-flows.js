@@ -1,6 +1,14 @@
 //conversation rules for the accounting firm website chatbot
 
 const flows = {
+  HOME: {
+    message: "Hi, Please select your preferred language before proceeding further\n\nආයුබෝවන්, ඉදිරියට යාමට පෙර කරුණාකර ඔබ කැමති භාෂාව තෝරන්න.",
+    options: [
+      { text: "English", next: "WELCOME" },
+      { text: "සිංහල", next: "WELCOME" }
+    ]
+  },
+
   WELCOME: {
     message: "Welcome to our accounting firm. How can we assist you?",
     options: [
