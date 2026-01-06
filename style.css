@@ -2113,7 +2113,8 @@ body .nav-link {
   position: fixed;
   bottom: 100px;
   right: 30px;
-  width: 350px;
+  width: 380px;
+  height: 480px;
   background: #fff;
   border: none;
   border-radius: 16px;
@@ -2162,43 +2163,103 @@ body .nav-link {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 340px;
   background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#chatbot-messages .bot {
+  background: #ffffff;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 85%;
+  align-self: flex-start;
+  font-size: 14px;
+  line-height: 1.4;
+  border: 1px solid #e9ecef;
+}
+
+#chatbot-messages .user {
+  background: linear-gradient(135deg, #4CAF50, #81C784);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 18px 18px 4px 18px;
+  max-width: 85%;
+  align-self: flex-end;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+#chatbot-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 0 8px;
+}
+
+#chatbot-options button {
+  background: linear-gradient(135deg, #4CAF50, #81C784);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(76, 175, 80, 0.2);
+}
+
+#chatbot-options button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  background: linear-gradient(135deg, #45a049, #75c878);
 }
 
 #chatbot-input {
   display: flex;
-  padding: 15px;
+  padding: 12px 15px;
   background: #fff;
-  gap: 10px;
+  gap: 8px;
+  border-top: 1px solid #f0f0f0;
 }
 
 #chatbot-input input {
   flex: 1;
-  padding: 12px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 25px;
+  padding: 10px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
   outline: none;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   transition: border-color 0.3s ease;
+  background: #f8f9fa;
 }
 
 #chatbot-input input:focus {
   border-color: #4CAF50;
+  background: #fff;
 }
 
 #chatbot-input button {
-  padding: 12px 24px;
+  padding: 10px 18px;
   background: linear-gradient(135deg, #4CAF50, #81C784);
   color: #fff;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
+  font-size: 13px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
 
 #chatbot-input button:hover {
