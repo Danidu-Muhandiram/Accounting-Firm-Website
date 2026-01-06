@@ -1,14 +1,16 @@
 //conversation rules for the accounting firm website chatbot
 
 const flows = {
+
   HOME: {
     message: "Hi, Please select your preferred language before proceeding further\n\nආයුබෝවන්, ඉදිරියට යාමට පෙර කරුණාකර ඔබ කැමති භාෂාව තෝරන්න.",
     options: [
-      { text: "English", next: "WELCOME" },
-      { text: "සිංහල", next: "WELCOME" }
+      { text: "English", next: "WELCOME", lang: "en" },
+      { text: "සිංහල", next: "WELCOME", lang: "si" }
     ]
   },
 
+en: {
   WELCOME: {
     message: "Welcome to our accounting firm. How can we assist you?",
     options: [
@@ -16,6 +18,18 @@ const flows = {
       { text: "Accounting & Bookkeeping", next: "ACCOUNTING" },
       { text: "Talk to an Accountant", next: "HUMAN" }
     ]
+}
+  },
+
+  si: {
+    WELCOME: {
+      message: "අපගේ ගිණුම්කරණ ආයතනයට පිළිගනිමු. අපි ඔබට කෙසේ උදව් කළ හැකිද?",
+      options: [
+        { text: "බදු සේවාවන්", next: "TAX" },
+        { text: "ගිණුම්කරණ සහ පොත් පත් තබා ගැනීම", next: "ACCOUNTING" },
+        { text: "ගිණුම්කරු සමඟ කතා කරන්න", next: "HUMAN" }
+      ]
+    }
   },
 
   TAX: {

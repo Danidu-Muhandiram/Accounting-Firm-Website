@@ -1,19 +1,38 @@
 //chatbot engine with state control
 
 let currentState = null;
+let currentLanguage = "en"; // default language
+
 
 //render a state by name
 function renderState(stateName){
-    const state = flows[stateName];
-    if(!state) return;
-
     currentState = stateName;
 
     //clear old buttons
     clearOptions();
 
-    //show bot message
-    addMessage(state.message, "bot");
+    // Determine message and options based on language
+    let messageToShow;
+    let optionsToShow;
+    let state;
+
+    if (stateName === "WELCOME") {
+        // Use flows[currentLanguage] for language-specific content
+        state = flows[currentLanguage]?.WELCOME;
+        if (state) {
+            messageToShow = state.message;
+            optionsToShow = state.options;
+        }
+    } else {
+        state = flows[stateName];
+        if(!state) return;
+        messageToShow = state.message;
+        optionsToShow = state.options;
+    }
+
+    // Show bot message
+    addMessage(messageToShow, "bot");
+
 
     //if contact state
     if(state.contact){
@@ -29,16 +48,23 @@ function renderState(stateName){
     }
 
     //render options
-    if(state.options){
-        showOptions(
-            state.options.map(option => ({
-                text: option.text,
-                action: () => {
-                    addMessage(option.text, "user");
+    if (optionsToShow) {
+    showOptions(
+        optionsToShow.map(option => ({
+            text: option.text,
+            action: () => {
+                addMessage(option.text, "user");
+                // Update language and render state
+                if (option.lang) {
+                    currentLanguage = option.lang; // Update language
+                    renderState(option.next); // Transition to next state
+                } else {
                     renderState(option.next);
                 }
-            }))
-        );
-    }
+            }
+        }))
+    );
+}
+
 }
 
