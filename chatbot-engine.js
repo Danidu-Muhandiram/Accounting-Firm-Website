@@ -31,10 +31,6 @@ function renderState(stateName){
         return; // State not found
     }
 
-    // Show bot message
-    addMessage(messageToShow, "bot");
-
-
     //if contact state
     if(state.contact){
         addMessage("Email: contact@paloaccounting.com");
@@ -48,10 +44,12 @@ function renderState(stateName){
         return;
     }
 
+    // Determine if buttons should be shown inline or in bottom layer
+    const showInBottomLayer = (stateName === "HOME"); // Only HOME state uses bottom layer
+    
     //render options
     if (optionsToShow) {
-    showOptions(
-        optionsToShow.map(option => ({
+        const mappedOptions = optionsToShow.map(option => ({
             text: option.text,
             action: () => {
                 addMessage(option.text, "user");
@@ -63,9 +61,20 @@ function renderState(stateName){
                     renderState(option.next);
                 }
             }
-        }))
-    );
-}
-
+        }));
+        
+        if (showInBottomLayer) {
+            // Show bot message without inline buttons
+            addMessage(messageToShow, "bot");
+            // Show buttons in bottom layer
+            showOptions(mappedOptions);
+        } else {
+            // Show bot message with inline buttons
+            addMessage(messageToShow, "bot", mappedOptions);
+        }
+    } else {
+        // No options, just show the message
+        addMessage(messageToShow, "bot");
+    }
 }
 
