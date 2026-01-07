@@ -16,18 +16,19 @@ function renderState(stateName){
     let optionsToShow;
     let state;
 
-    if (stateName === "WELCOME") {
-        // Use flows[currentLanguage] for language-specific content
-        state = flows[currentLanguage]?.WELCOME;
-        if (state) {
-            messageToShow = state.message;
-            optionsToShow = state.options;
-        }
-    } else {
-        state = flows[stateName];
-        if(!state) return;
+    // Check for language-specific state
+    if (flows[currentLanguage] && flows[currentLanguage][stateName]) {
+        // Load content in selected language
+        state = flows[currentLanguage][stateName];
         messageToShow = state.message;
         optionsToShow = state.options;
+    } else if (flows[stateName]) {
+        // Fallback to root level (for HOME state)
+        state = flows[stateName];
+        messageToShow = state.message;
+        optionsToShow = state.options;
+    } else {
+        return; // State not found
     }
 
     // Show bot message
