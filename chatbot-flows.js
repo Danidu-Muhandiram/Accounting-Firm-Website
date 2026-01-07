@@ -14,9 +14,11 @@ en: {
   WELCOME: {
     message: "Welcome to our accounting firm. How can we assist you?",
     options: [
-      { text: "Tax Services", next: "TAX" },
-      { text: "Accounting & Bookkeeping", next: "ACCOUNTING" },
-      { text: "Talk to an Accountant", next: "HUMAN" }
+      { text: "Our Services", next: "SERVICES" },
+      { text: "Book a Session", next: "SESSION" },
+      { text: "Talk to a Professional Expert", next: "HUMAN" },
+      { text: "Chat with our AI Assistant", next: "AI_ASSISTANT" },
+      { text: "About Us", next: "ABOUT_US" }
     ]
 }
   },
@@ -25,12 +27,43 @@ en: {
     WELCOME: {
       message: "අපගේ ගිණුම්කරණ ආයතනයට සාදරයෙන් පිළිගනිමු. අපි ඔබට සහය වන්නේ කොහොමද?",
       options: [
-        { text: "බදු සේවාවන්", next: "TAX" },
-        { text: "ගිණුම්කරණ සහ පොත් පත් තබා ගැනීම", next: "ACCOUNTING" },
-        { text: "ගිණුම්කරු සමඟ කතා කරන්න", next: "HUMAN" }
+        { text: "අපගේ සේවාවන්", next: "SERVICES" },
+        { text: "සාකච්චාවක් වෙන්කරන්න", next: "SESSION" },
+        { text: "අපගේ වෘත්තීය විශේෂඥයෙකු සමඟ කතා කරන්න", next: "HUMAN" },
+        { text: "අපගේ AI සහායකයා සමඟ කතා කරන්න", next: "AI_ASSISTANT" },
+        { text: "අප ගැන විස්තර" , next: "ABOUT_US" }
       ]
     }
   },
+
+en: {
+  SERVICES: {
+    message: "what type of service are you looking for?",
+    options: [
+      { text: "Tax Services", next: "TAX_SERVICES" },
+      { text: "Accounting & Bookkeeping", next: "ACCOUNTING" },
+      { text: "Payroll", next: "PAYROLL" },
+      { text: "Auditing", next: "AUDITING" },
+      { text: "Business Registration", next: "BUSINESS_REGISTRATION" },
+      { text: "Consultation", next: "CONSULTATION" }
+    ]
+}
+  },
+
+  si: {
+  SERVICES: {
+    message: "ඔබට අවශ්‍ය සේවාව කුමක්ද?",
+    options: [
+      { text: "බදු සේවාවන්", next: "TAX_SERVICES" },
+      { text: "ගිණුම්කරණය සහ පොත් තැබීම", next: "ACCOUNTING" },
+      { text: "වැටුප් ලේඛන", next: "PAYROLL" },
+      { text: "විගණනය", next: "AUDITING" },
+      { text: "ව්‍යාපාර ලියාපදිංචිය", next: "BUSINESS_REGISTRATION" },
+      { text: "උපදේශන සේවාව", next: "CONSULTATION" }
+    ]
+}
+  },
+
 
   TAX: {
     message: "Are you an Individual or a Business?",
