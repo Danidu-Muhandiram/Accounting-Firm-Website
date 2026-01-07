@@ -64,6 +64,51 @@ en: {
 }
   },
 
+en: {
+  SESSION: {
+    message: "What type of session would you like to book?",
+    options: [
+      { text: "Consultation (Online)", next: "CONSULTATION" },
+      { text: "Office Visit", next: "OFFICE_VISIT" },
+      { text: "Call Back Request", next: "CALL_BACK_REQUEST" },
+    ]
+}
+  },
+
+  si: {
+  SESSION: {
+    message: "ඔබ වෙන්කරගන්නා සැසි වර්ගය කුමක්ද?",
+    options: [
+      { text: "උපදේශන සැසිය (අන්තර්ජාලය)", next: "CONSULTATION" },
+      { text: "කාර්යාල හමුවීම", next: "OFFICE_VISIT" },
+      { text: "ආපසු ඇමතුම් ඉල්ලීම", next: "CALL_BACK_REQUEST" },
+    ]
+}
+  },
+
+
+  en: {
+  EXPERT: {
+    message: "What type of method you like to be contacted?",
+    options: [
+      { text: "Call", next: "CALL" },
+      { text: "WhatsApp", next: "WHATSAPP" },
+      { text: "Email", next: "EMAIL" },
+    ]
+}
+  },
+
+  si: {
+  EXPERT: {
+    message: "ඔබ සම්බන්ධ වීමට කැමති ක්‍රමය කුමක්ද?",
+    options: [
+      { text: "සාමාන්‍ය ඇමතුම", next: "CALL" },
+      { text: "WhatsApp", next: "WHATSAPP" },
+      { text: "E-mail", next: "EMAIL" },
+    ]
+}
+  },
+
 
   TAX: {
     message: "Are you an Individual or a Business?",
