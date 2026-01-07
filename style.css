@@ -2111,10 +2111,10 @@ body .nav-link {
 /* Chatbot Styles */
 #chatbot {
   position: fixed;
-  bottom: 100px;
-  right: 30px;
+  bottom: 20px;
+  right: 110px;
   width: 380px;
-  height: 480px;
+  height: 600px;
   background: #fff;
   border: none;
   border-radius: 16px;
@@ -2163,7 +2163,7 @@ body .nav-link {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  max-height: 340px;
+  max-height: 460px;
   background: #f8f9fa;
   display: flex;
   flex-direction: column;
