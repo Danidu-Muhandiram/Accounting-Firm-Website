@@ -65,7 +65,7 @@ const flows = {
     },
     //tax services state with individual/business options
     TAX_SERVICES: {
-      message: "Are you an Individual or a Business?",
+      message: "We help with tax filing, planning, and compliance for individuals and businesses. Please choose an option:",
       options: [
         { text: "Individual Tax", next: "INDIVIDUAL_TAX" },
         { text: "Business Tax", next: "BUSINESS_TAX" }
@@ -112,6 +112,29 @@ const flows = {
     END: {
       message: "Thank you for visiting. You may contact us anytime.",
       end: true
+    },
+    //fallback state for unrecognized inputs
+    FALLBACK: {
+      message: "I'm sorry, I didn't understand that. Could you please select an option from the menu?",
+      options: [
+        { text: "Go Back to Main Menu", next: "WELCOME" }
+      ]
+    },
+    // FAQ and Feedback states
+    FAQ: {
+      message: "Here are some frequently asked questions:",
+      options: [
+        { text: "What services do you offer?", next: "SERVICES" },
+        { text: "How can I book a session?", next: "SESSION" },
+        { text: "Contact a human expert", next: "HUMAN" }
+      ]
+    },
+    FEEDBACK: {
+      message: "We value your feedback. Please share your thoughts:",
+      options: [
+        { text: "Provide Feedback", next: "FEEDBACK_FORM" },
+        { text: "Not Now", next: "END" }
+      ]
     }
   },
 
@@ -169,11 +192,11 @@ const flows = {
       ]
     },
     //tax services state with individual/business options
-    TAX: {
-      message: "ඔබට දැනගැනීමට අවශ්‍ය පුද්ගල බදුද නැතිනම් ව්‍යාපාර බදුද?",
+    TAX_SERVICES: {
+      message: "අපි පුද්ගලික සහ ව්‍යාපාරික බදු සඳහා බදු සැකසුම්, සැලසුම් කිරීම, සහ අනුකූලතා සහාය සපයමු. කරුණාකර විකල්පයක් තෝරන්න:",
       options: [
-        { text: "පුද්ගල බදු", next: "INDIVIDUAL_TAX" },
-        { text: "ව්‍යාපාර බදු", next: "BUSINESS_TAX" }
+        { text: "පුද්ගලික බදු", next: "INDIVIDUAL_TAX" },
+        { text: "ව්‍යාපාරික බදු", next: "BUSINESS_TAX" }
       ]
     },
     //individual tax services state
@@ -217,6 +240,29 @@ const flows = {
     END: {
       message: "ස්තූතියි. ඔබට ඕනෑම වෙලාවක අප අමතන්න.",
       end: true
+    },
+    //fallback state for unrecognized inputs
+    FALLBACK: {
+      message: "මට කණගාටුයි, මට ඒක තේරුණේ නැහැ. කරුණාකර මෙනුවෙන් විකල්පයක් තෝරන්න:",
+      options: [
+        { text: "ප්‍රධාන මෙනුවට ආපසු යන්න", next: "WELCOME" }
+      ]
+    },
+    // FAQ and Feedback states
+    FAQ: {
+      message: "මෙන්න සාමාන්‍යයෙන් අසන ප්‍රශ්න:",
+      options: [
+        { text: "ඔබ සපයන සේවාවන් මොනවාද?", next: "SERVICES" },
+        { text: "මම කෙසේ සෙෂන් එකක් වෙන් කර ගත හැකිද?", next: "SESSION" },
+        { text: "වෘත්තීය විශේෂඥයෙකු අමතන්න", next: "HUMAN" }
+      ]
+    },
+    FEEDBACK: {
+      message: "අපි ඔබේ ප්‍රතිචාරයට වටිනාකමක් දෙමු. කරුණාකර ඔබේ අදහස් බෙදාගන්න:",
+      options: [
+        { text: "ප්‍රතිචාර ලබාදෙන්න", next: "FEEDBACK_FORM" },
+        { text: "දැන් අවශ්‍ය නැත", next: "END" }
+      ]
     }
   }
 };
