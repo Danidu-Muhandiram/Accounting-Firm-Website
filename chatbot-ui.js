@@ -15,6 +15,12 @@
 // creates a message element, assigns it as a bot or user message,
 // sets the message text, and appends it to the chat messages area.
 function addMessage(text, sender = "bot", inlineOptions = null) {
+  const messages = document.getElementById("chatbot-messages");
+  if (!messages) {
+    console.error("Chatbot messages element not found.");
+    return;
+  }
+
   const div = document.createElement("div");
   div.className = sender;
   
@@ -46,6 +52,7 @@ function addMessage(text, sender = "bot", inlineOptions = null) {
       
       inlineOptions.forEach(option => {
         const btn = document.createElement("button");
+        btn.classList.add('inline-option');
         btn.innerText = option.text;
         btn.style.padding = "10px 16px";
         btn.style.background = "linear-gradient(135deg, #4CAF50, #81C784)";

@@ -3,6 +3,9 @@
 let currentState = null;
 let currentLanguage = "en"; // default language
 
+// CHATBOT mode
+let aiMode = false;
+
 
 //render a state by name
 function renderState(stateName){
@@ -10,6 +13,12 @@ function renderState(stateName){
 
     //clear old buttons
     clearOptions();
+
+    // If user requested AI assistant, enable AI mode immediately
+    if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
+        enableAIMode();
+        return;
+    }
 
     // Determine message and options based on language
     let messageToShow;
@@ -29,6 +38,12 @@ function renderState(stateName){
         optionsToShow = state.options;
     } else {
         return; // State not found
+    }
+
+    // Activate AI mode for AI_ASSISTANT states
+    if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
+        enableAIMode();
+        return;
     }
 
     //if contact state
@@ -52,6 +67,7 @@ function renderState(stateName){
         const mappedOptions = optionsToShow.map(option => ({
             text: option.text,
             action: () => {
+                disableButtons();
                 addMessage(option.text, "user");
                 // Update language and render state
                 if (option.lang) {
@@ -76,5 +92,60 @@ function renderState(stateName){
         // No options, just show the message
         addMessage(messageToShow, "bot");
     }
+
+    // Enable AI mode if user selected AI assistant
+    function enableAIMode() {
+        aiMode = true;
+        clearOptions();
+        // Localized welcome
+        const welcomeText = (currentLanguage === 'si')
+            ? "හායි, මම පාලෝ, ශ්‍රී ලංකාවේ වඩාත්ම ජනප්‍රිය ගිණුම්කරණ සමාගමක AI සහකාර. අද මට ඔබට උදව් කළ හැක්කේ කෙසේද?"
+            : "Hi, I'm Palo, the AI assistant for one of the most popular accounting firms in Sri Lanka. How can I assist you today?";
+
+        addMessage(welcomeText);
+
+        // Focus the existing input field in the UI so user can type immediately
+        const inputField = document.getElementById('chatbot-text');
+        const sendBtn = document.getElementById('chatbot-send');
+
+        if (inputField) {
+            inputField.focus();
+            // make sure it's visible (in case styles hide it)
+            inputField.style.display = '';
+        }
+
+        if (sendBtn) {
+            sendBtn.style.display = '';
+        }
+    }
+
+// Disable all buttons
+function disableButtons() {
+    // Only disable option buttons so global controls (Send, Clear) remain usable
+    const optionButtons = document.querySelectorAll("#chatbot-options button, .inline-option");
+    optionButtons.forEach(button => button.disabled = true);
+}
+
+// Function to send user message to the backend and get AI response
+async function sendMessageToAI(userMessage) {
+    try {
+        const response = await fetch('http://localhost:3000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userMessage })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            addMessage(data.reply, 'bot');
+        } else {
+            addMessage('Sorry, there was an error connecting to the AI assistant.', 'bot');
+        }
+    } catch (error) {
+        addMessage('Unable to connect to the AI assistant. Please try again later.', 'bot');
+    }
+}
 }
 

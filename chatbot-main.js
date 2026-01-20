@@ -47,6 +47,15 @@ sendButton.addEventListener("click", () => {
   if (userMessage) {
     addMessage(userMessage, "user");
     inputField.value = "";// Clear input after sending
+    
+    // If AI mode is active, route the message to the AI backend
+    if (typeof aiMode !== 'undefined' && aiMode) {
+      if (typeof sendMessageToAI === 'function') {
+        sendMessageToAI(userMessage);
+      } else {
+        console.error('sendMessageToAI is not available');
+      }
+    }
   }
 });
 
