@@ -147,5 +147,7 @@ async function sendMessageToAI(userMessage) {
         addMessage('Unable to connect to the AI assistant. Please try again later.', 'bot');
     }
 }
+    // Expose to global scope for chatbot-main.js
+    window.sendMessageToAI = sendMessageToAI;
 }
 

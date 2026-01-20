@@ -93,4 +93,6 @@ header.appendChild(clearButton);
 clearButton.addEventListener("click", () => {
   const messages = document.getElementById("chatbot-messages");
   messages.innerHTML = "";
+  // Reset chatbot to initial welcome state
+  renderState("HOME");
 });
