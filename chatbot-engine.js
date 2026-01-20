@@ -93,13 +93,13 @@ function renderState(stateName){
         addMessage(messageToShow, "bot");
     }
 
-    // Enable AI mode if user selected AI assistant
+    // Enable AI mode: use the existing chat input (so it's visible in the widget)
     function enableAIMode() {
         aiMode = true;
         clearOptions();
         // Localized welcome
         const welcomeText = (currentLanguage === 'si')
-            ? "හායි, මම පාලෝ, ශ්‍රී ලංකාවේ වඩාත්ම ජනප්‍රිය ගිණුම්කරණ සමාගමක AI සහකාර. අද මට ඔබට උදව් කළ හැක්කේ කෙසේද?"
+            ? "හායි, මම පාලෝ, ශ්‍රී ලංකාවේ වඩාත්ම ජනප්‍රිය ගිණුම්කරණ සමාගමක AI සහායක. අද මට ඔබට උදව් කළ හැක්කේ කෙසේද?"
             : "Hi, I'm Palo, the AI assistant for one of the most popular accounting firms in Sri Lanka. How can I assist you today?";
 
         addMessage(welcomeText);
