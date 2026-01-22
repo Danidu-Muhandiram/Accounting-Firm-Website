@@ -21,6 +21,38 @@ const flows = {
         { text: "Talk to a Professional Expert", next: "HUMAN" },
         { text: "Chat with our AI Assistant", next: "AI_ASSISTANT" },
         { text: "About Us", next: "ABOUT_US" }
+      ],
+      carousel: [
+        {
+          image: "images/chatbot-our_services.jpg",
+          title: "Our Services",
+          description: "Explore all the services we offer for individuals and businesses.",
+          button: { text: "View Services", action: function() { renderState('SERVICES'); } }
+        },
+        {
+          image: "images/chatbot-book_session.jpg",
+          title: "Book a Session",
+          description: "Easily schedule a meeting or consultation with our experts.",
+          button: { text: "Book Now", action: function() { renderState('SESSION'); } }
+        },
+        {
+          image: "images/chatbot-expert.jpg",
+          title: "Talk to a Professional Expert",
+          description: "Connect with a professional for personalized accounting advice.",
+          button: { text: "Talk Now", action: function() { renderState('HUMAN'); } }
+        },
+        {
+          image: "images/chatbot-AI.jpg",
+          title: "Chat with our AI Assistant",
+          description: "Get instant answers and support from our AI-powered assistant.",
+          button: { text: "Start Chat", action: function() { renderState('AI_ASSISTANT'); } }
+        },
+        {
+          image: "images/chatbot-about_us.jpg",
+          title: "About Us",
+          description: "Learn more about our firm, our values, and our team of experts.",
+          button: { text: "About Us", action: function() { renderState('ABOUT_US'); } }
+        }
       ]
     },
     //services state with service options

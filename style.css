@@ -1,3 +1,217 @@
+/* Chatbot Carousel Styles */
+.chatbot-carousel-wrapper {
+  width: 100%;
+  margin: 0 auto 12px auto;
+  position: relative;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chatbot-carousel-track {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.chatbot-carousel-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10), 0 1.5px 6px rgba(135,202,156,0.10);
+  width: 280px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1;
+}
+.chatbot-carousel-card.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  z-index: 2;
+}
+.chatbot-carousel-card.left {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+.chatbot-carousel-card.right {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+  z-index: 1;
+}
+/* Only show one card at a time, center it */
+.chatbot-carousel-wrapper {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 12px auto;
+  position: relative;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  justify-content: center;
+  min-height: 400px;
+  height: 400px;
+}
+@media (max-width: 480px) {
+  .chatbot-carousel-card, .chatbot-carousel-track {
+    min-width: 200px;
+    max-width: 200px;
+    width: 200px;
+    height: 320px;
+  }
+  .chatbot-carousel-wrapper {
+    max-width: 220px;
+    min-height: 320px;
+    height: 320px;
+  }
+}
+@media (max-width: 480px) {
+  .chatbot-carousel-card {
+    min-width: 180px;
+    max-width: 200px;
+    width: 180px;
+  }
+  .chatbot-carousel-wrapper {
+    max-width: 220px;
+  }
+}
+.carousel-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  background: #e9ecef;
+}
+.carousel-card-text {
+  padding: 16px 16px 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.carousel-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #2c3e50;
+  margin-bottom: 2px;
+}
+.carousel-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.97rem;
+  color: #5a6c7d;
+  line-height: 1.4;
+  min-height: 2.5em;
+  max-height: 3.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.carousel-card-btn {
+  margin: 12px 16px 16px 16px;
+  padding: 10px 0;
+  background: linear-gradient(135deg, #4CAF50, #81C784);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.13);
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-card-btn:hover {
+  background: linear-gradient(135deg, #5FAD85, #87CA9C);
+  transform: translateY(-2px) scale(1.03);
+}
+.carousel-pagination-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0 0;
+}
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c8e6c9;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.carousel-dot.active {
+  background: #4CAF50;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: rgba(44,62,80,0.10);
+  color: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  opacity: 0.85;
+  transition: background 0.2s, opacity 0.2s;
+  user-select: none;
+}
+.carousel-arrow.left {
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.carousel-arrow.right {
+  right: 0;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%) translateX(50%);
+}
+@media (max-width: 480px) {
+  .chatbot-carousel-card, .chatbot-carousel-track {
+    min-width: 200px;
+    max-width: 200px;
+    width: 200px;
+  }
+  .chatbot-carousel-wrapper {
+    max-width: 220px;
+  }
+}
+.carousel-arrow:hover {
+  background: rgba(76,175,80,0.18);
+  opacity: 1;
+}
+@media (max-width: 480px) {
+  .chatbot-carousel-card {
+    min-width: 180px;
+    max-width: 200px;
+    width: 180px;
+  }
+}
 *{
   font-family: "Inter", sans-serif;
   box-sizing: border-box;

@@ -62,6 +62,11 @@ function renderState(stateName){
     // Determine if buttons should be shown inline or in bottom layer
     const showInBottomLayer = (stateName === "HOME"); // Only HOME state uses bottom layer
     
+    // Carousel support: if state.carousel is present, show as carousel special message
+    if (state && state.carousel && Array.isArray(state.carousel)) {
+        addMessage(state.carousel, "bot", null, "carousel");
+        return;
+    }
     //render options
     if (optionsToShow) {
         const mappedOptions = optionsToShow.map(option => ({
@@ -78,18 +83,13 @@ function renderState(stateName){
                 }
             }
         }));
-        
         if (showInBottomLayer) {
-            // Show bot message without inline buttons
             addMessage(messageToShow, "bot");
-            // Show buttons in bottom layer
             showOptions(mappedOptions);
         } else {
-            // Show bot message with inline buttons
             addMessage(messageToShow, "bot", mappedOptions);
         }
     } else {
-        // No options, just show the message
         addMessage(messageToShow, "bot");
     }
 
