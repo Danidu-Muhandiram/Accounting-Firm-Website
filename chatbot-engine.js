@@ -6,92 +6,95 @@ let currentLanguage = "en"; // default language
 // CHATBOT mode
 let aiMode = false;
 
+// Global variable to store user details
+let userContext = { name: "" };
 
-//render a state by name
-function renderState(stateName){
-    currentState = stateName;
+// Check if waiting for the user to type a name
+function isWaitingForName() {
+    let stateObj = (flows[currentLanguage] && flows[currentLanguage][currentState]) 
+                   ? flows[currentLanguage][currentState] 
+                   : flows[currentState];
+    return stateObj && stateObj.type === "capture_name";
+}
 
-    //clear old buttons
-    clearOptions();
-
-    // If user requested AI assistant, enable AI mode immediately
-    if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
-        enableAIMode();
-        return;
-    }
-
-    // Determine message and options based on language
-    let messageToShow;
-    let optionsToShow;
-    let state;
-
-    // Check for language-specific state
-    if (flows[currentLanguage] && flows[currentLanguage][stateName]) {
-        // Load content in selected language
-        state = flows[currentLanguage][stateName];
-        messageToShow = state.message;
-        optionsToShow = state.options;
-    } else if (flows[stateName]) {
-        // Fallback to root level (for HOME state)
-        state = flows[stateName];
-        messageToShow = state.message;
-        optionsToShow = state.options;
-    } else {
-        return; // State not found
-    }
-
-    // Activate AI mode for AI_ASSISTANT states
-    if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
-        enableAIMode();
-        return;
-    }
-
-    //if contact state
-    if(state.contact){
-        addMessage("Email: contact@paloaccounting.com");
-        addMessage("Phone: +94 123 456 7890");
-        return;
-    }
-
-    //if end state
-    if(state.end){
-        addMessage("Chat ended. Have a great day!");
-        return;
-    }
-
-    // Determine if buttons should be shown inline or in bottom layer
-    const showInBottomLayer = (stateName === "HOME"); // Only HOME state uses bottom layer
+// Handle the name input
+function handleUserResponse(userText) {
+    userContext.name = userText; // Save the name
     
-    // Carousel support: if state.carousel is present, show as carousel special message
-    if (state && state.carousel && Array.isArray(state.carousel)) {
-        addMessage(state.carousel, "bot", null, "carousel");
+    // Capitalize first letter of name
+    if(userContext.name) userContext.name = userContext.name.charAt(0).toUpperCase() + userContext.name.slice(1);
+
+    // Go next state (WELCOME)
+    let stateObj = flows[currentLanguage][currentState];
+    if (stateObj && stateObj.next) renderState(stateObj.next);
+}
+// Expose to main
+window.isWaitingForName = isWaitingForName;
+window.handleUserResponse = handleUserResponse;
+
+function renderState(stateName) {
+    currentState = stateName;
+    clearOptions(); // clear old buttons
+
+    // AI Check
+    if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
+        enableAIMode();
         return;
     }
-    //render options
+
+    // Load State Data
+    let state = (flows[currentLanguage] && flows[currentLanguage][stateName]) 
+                ? flows[currentLanguage][stateName] 
+                : flows[stateName];
+
+    if (!state) return; 
+
+    // Process Message (Swap {name} placeholder)
+    let messageToShow = state.message;
+    if (messageToShow && messageToShow.includes("{name}")) {
+        let displayName = userContext.name || "Guest";
+        messageToShow = messageToShow.replace(/{name}/g, displayName);
+    }
+
+    // Render Text and Options
+    let optionsToShow = state.options;
     if (optionsToShow) {
         const mappedOptions = optionsToShow.map(option => ({
             text: option.text,
             action: () => {
                 disableButtons();
                 addMessage(option.text, "user");
-                // Update language and render state
-                if (option.lang) {
-                    currentLanguage = option.lang; // Update language
-                    renderState(option.next); // Transition to next state
-                } else {
-                    renderState(option.next);
-                }
+                if (option.lang) currentLanguage = option.lang;
+                renderState(option.next);
             }
         }));
-        if (showInBottomLayer) {
+        
+        // Show message with buttons attached (or separate if HOME)
+        if (stateName === "HOME") {
             addMessage(messageToShow, "bot");
             showOptions(mappedOptions);
         } else {
             addMessage(messageToShow, "bot", mappedOptions);
         }
     } else {
-        addMessage(messageToShow, "bot");
+        // Just text (like INITIAL state)
+        if (messageToShow) addMessage(messageToShow, "bot");
     }
+
+    // Render Carousel (shows AFTER the text)
+    if (state.carousel && Array.isArray(state.carousel)) {
+        addMessage(state.carousel, "bot", null, "carousel");
+    }
+
+    // Special States
+    if(state.contact) {
+        addMessage("Email: contact@paloaccounting.com");
+        addMessage("Phone: +94 123 456 7890");
+    }
+    if(state.end) {
+        addMessage("Chat ended. Have a great day!");
+    }
+}
 
     // Enable AI mode: use the existing chat input (so it's visible in the widget)
     function enableAIMode() {
@@ -149,5 +152,4 @@ async function sendMessageToAI(userMessage) {
 }
     // Expose to global scope for chatbot-main.js
     window.sendMessageToAI = sendMessageToAI;
-}
 

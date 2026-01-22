@@ -5,23 +5,31 @@ const flows = {
   HOME: {
     message: "Hi, Please select your preferred language before proceeding further\n\nආයුබෝවන්, ඉදිරියට යාමට පෙර කරුණාකර ඔබ කැමති භාෂාව තෝරන්න.",
     options: [
-      { text: "English", next: "WELCOME", lang: "en" },
-      { text: "සිංහල", next: "WELCOME", lang: "si" }
+      { text: "English", next: "INITIAL", lang: "en" },
+      { text: "සිංහල", next: "INITIAL", lang: "si" }
     ]
   },
 
   //English language content
   en: {
+
+    INITIAL: {
+  message: "Welcome to our accounting firm. Before we begin, please tell me your name",
+  type: "capture_name",
+  next: "WELCOME"
+},
+
+
     //first welcome state with company services and other options
     WELCOME: {
-      message: "Welcome to our accounting firm. How can we assist you?",
-      options: [
+      message: "Hello {name}. we are one of leading accounting firms in sri lanka. we offer various services. How can we assist you?",
+      /*options: [
         { text: "Our Services", next: "SERVICES" },
         { text: "Book a Session", next: "SESSION" },
         { text: "Talk to a Professional Expert", next: "HUMAN" },
         { text: "Chat with our AI Assistant", next: "AI_ASSISTANT" },
         { text: "About Us", next: "ABOUT_US" }
-      ],
+      ],*/
       carousel: [
         {
           image: "images/chatbot-our_services.jpg",
@@ -55,6 +63,7 @@ const flows = {
         }
       ]
     },
+
     //services state with service options
     SERVICES: {
       message: "what type of service are you looking for?",

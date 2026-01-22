@@ -45,16 +45,22 @@ sendButton.addEventListener("click", () => {
   const userMessage = inputField.value.trim();
   // Only send the message if input is not empty
   if (userMessage) {
-    addMessage(userMessage, "user");
-    inputField.value = "";// Clear input after sending
+    addMessage(userMessage, "user"); // Show user text
+    inputField.value = ""; // Clear input
+
     
     // If AI mode is active, route the message to the AI backend
     if (typeof aiMode !== 'undefined' && aiMode) {
-      if (typeof sendMessageToAI === 'function') {
-        sendMessageToAI(userMessage);
-      } else {
-        console.error('sendMessageToAI is not available');
-      }
+      // AI Mode is ON (User clicked "Chat with AI") -> Send to AI
+      if (typeof sendMessageToAI === 'function') sendMessageToAI(userMessage);
+      
+    } else if (typeof isWaitingForName === 'function' && isWaitingForName()) {
+      // We are waiting for a Name (INITIAL state) -> Save Name
+      handleUserResponse(userMessage);
+      
+    } else {
+      // Normal Mode -> Input does nothing (User must click buttons)
+      "Please select an option"
     }
   }
 });
