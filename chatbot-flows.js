@@ -14,15 +14,15 @@ const flows = {
   en: {
 
     INITIAL: {
-  message: "Welcome to our accounting firm. Before we begin, please tell me your name",
-  type: "capture_name",
-  next: "WELCOME"
+    message: "Welcome to our accounting firm. Before we begin, please tell me your name",
+    type: "capture_name",
+    next: "WELCOME"
 },
 
 
     //first welcome state with company services and other options
     WELCOME: {
-      message: "Hello {name}. we are one of leading accounting firms in sri lanka. we offer various services. How can we assist you?",
+      message: "Hello {name}! Welcome to one of Sri Lanka’s leading accounting firms. We provide a wide range of professional services tailored to your needs. How may we assist you today?",
       /*options: [
         { text: "Our Services", next: "SERVICES" },
         { text: "Book a Session", next: "SESSION" },
@@ -181,41 +181,82 @@ const flows = {
 
   //Sinhala language content
   si: {
+
+    INITIAL: {
+    message: "අපගේ ගිණුම්කරණ සමාගමට සාදරයෙන් පිළිගනිමු. අපි ආරම්භ කිරීමට පෙර, කරුණාකර ඔබේ නම මට කියන්න.",
+    type: "capture_name",
+    next: "WELCOME"
+},
+
     //first welcome state with company services and other options
     WELCOME: {
-      message: "අපගේ ගිණුම්කරණ ආයතනයට සාදරයෙන් පිළිගනිමු. අපි ඔබට සහය වන්නේ කොහොමද?",
-      options: [
+      message: "හෙලෝ {name}! අපි ශ්‍රී ලංකාවේ ප්‍රමුඛ ගණකාධිකරණ ආයතනයක් වන අතර, විවිධ සේවාවන් ලබා දෙන්නෙමු. අද ඔබට කෙසේ උපකාර කළ හැකිද?",
+      /*options: [
         { text: "අපගේ සේවාවන්", next: "SERVICES" },
         { text: "සාකච්චාවක් වෙන්කරන්න", next: "SESSION" },
         { text: "අපගේ වෘත්තීය විශේෂඥයෙකු සමඟ කතා කරන්න", next: "HUMAN" },
         { text: "අපගේ AI සහායකයා සමඟ කතා කරන්න", next: "AI_ASSISTANT" },
         { text: "අප ගැන විස්තර", next: "ABOUT_US" }
+      ]*/
+
+      carousel: [
+        {
+          image: "images/chatbot-our_services.jpg",
+          title: "Our Services",
+          description: "Explore all the services we offer for individuals and businesses.",
+          button: { text: "View Services", action: function() { renderState('SERVICES'); } }
+        },
+        {
+          image: "images/chatbot-book_session.jpg",
+          title: "Book a Session",
+          description: "Easily schedule a meeting or consultation with our experts.",
+          button: { text: "Book Now", action: function() { renderState('SESSION'); } }
+        },
+        {
+          image: "images/chatbot-expert.jpg",
+          title: "Talk to a Professional Expert",
+          description: "Connect with a professional for personalized accounting advice.",
+          button: { text: "Talk Now", action: function() { renderState('HUMAN'); } }
+        },
+        {
+          image: "images/chatbot-AI.jpg",
+          title: "Chat with our AI Assistant",
+          description: "Get instant answers and support from our AI-powered assistant.",
+          button: { text: "Start Chat", action: function() { renderState('AI_ASSISTANT'); } }
+        },
+        {
+          image: "images/chatbot-about_us.jpg",
+          title: "About Us",
+          description: "Learn more about our firm, our values, and our team of experts.",
+          button: { text: "About Us", action: function() { renderState('ABOUT_US'); } }
+        }
       ]
+    
     },
     //services state with service options
     SERVICES: {
       message: "ඔබට අවශ්‍ය සේවාව කුමක්ද?",
       options: [
         { text: "බදු සේවාවන්", next: "TAX_SERVICES" },
-        { text: "ගිණුම්කරණය සහ පොත් තැබීම", next: "ACCOUNTING" },
-        { text: "වැටුප් ලේඛන", next: "PAYROLL" },
-        { text: "විගණනය", next: "AUDITING" },
-        { text: "ව්‍යාපාර ලියාපදිංචිය", next: "BUSINESS_REGISTRATION" },
+        { text: "ගිණුම්කරණය සහ පොත් පවත්වා ගැනීම", next: "ACCOUNTING" },
+        { text: "වැටුප් කළමනාකරණය", next: "PAYROLL" },
+        { text: "විගණන සේවාවන්", next: "AUDITING" },
+        { text: "ව්‍යාපාර ලියාපදිංචි කිරීම", next: "BUSINESS_REGISTRATION" },
         { text: "උපදේශන සේවාව", next: "CONSULTATION" }
       ]
     },
     //session booking state
     SESSION: {
-      message: "ඔබ වෙන්කරගන්නා සැසි වර්ගය කුමක්ද?",
+      message: "ඔබට වෙන්කර ගැනීමට අවශ්‍ය සැසි වර්ගය කුමක්ද?",
       options: [
-        { text: "උපදේශන සැසිය (අන්තර්ජාලය)", next: "CONSULTATION" },
+        { text: "උපදේශන සැසිය (අන්තර්ජාලය හරහා)", next: "CONSULTATION" },
         { text: "කාර්යාල හමුවීම", next: "OFFICE_VISIT" },
-        { text: "ආපසු ඇමතුම් ඉල්ලීම", next: "CALL_BACK_REQUEST" },
+        { text: "ආපසු ඇමතුමක් ඉල්ලීම", next: "CALL_BACK_REQUEST" },
       ]
     },
     //human expert contact method state
     EXPERT: {
-      message: "ඔබ සම්බන්ධ වීමට කැමති ක්‍රමය කුමක්ද?",
+      message: "අපි ඔබට සම්බන්ධ වීමට කැමති ක්‍රමය කුමක්ද?",
       options: [
         { text: "සාමාන්‍ය ඇමතුම", next: "CALL" },
         { text: "WhatsApp", next: "WHATSAPP" },
@@ -224,9 +265,9 @@ const flows = {
     },
     //location information state
     LOCATION: {
-      message: "අපගේ සමාගම ගැන:",
+      message: "අපගේ සමාගම ගැන වැඩි විස්තර:",
       options: [
-        { text: "කාර්යාල වෙලාවන්", next: "OFFICE_HOURS" },
+        { text: "කාර්යාල වේලාවන්", next: "OFFICE_HOURS" },
         { text: "කාර්යාල ස්ථාන", next: "LOCATIONS" },
         { text: "අපගේ අත්දැකීම්", next: "EXPERIENCE" },
         { text: "අපගේ ජයග්‍රහණ සහ ඇගයීම්", next: "CERTIFICATIONS" },
@@ -234,7 +275,7 @@ const flows = {
     },
     //tax services state with individual/business options
     TAX_SERVICES: {
-      message: "අපි පුද්ගලික සහ ව්‍යාපාරික බදු සඳහා බදු සැකසුම්, සැලසුම් කිරීම, සහ අනුකූලතා සහාය සපයමු. කරුණාකර විකල්පයක් තෝරන්න:",
+      message: "අපි පුද්ගලික සහ ව්‍යාපාරික බදු සඳහා බදු සැකසුම්, බදු සැලසුම් කිරීම, සහ අනුකූලතා සහාය සපයන්නෙමු. කරුණාකර පහත විකල්ප වලින් එකක් තෝරන්න:",
       options: [
         { text: "පුද්ගලික බදු", next: "INDIVIDUAL_TAX" },
         { text: "ව්‍යාපාරික බදු", next: "BUSINESS_TAX" }
@@ -258,10 +299,10 @@ const flows = {
     },
     //accounting services state
     ACCOUNTING: {
-      message: "අපි මාසික සහ වාර්ෂික ගිණුම්කරණ සේවාවන් සපයමු.",
+      message: "අපි මාසික සහ වාර්ෂික ගිණුම්කරණ සේවාවන් සපයන්නෙමු.",
       options: [
         { text: "උපදේශන සේවාවක් වෙන්කරන්න", next: "CONSULTATION" },
-        { text: "දැන්ම අවශ්‍ය නැත", next: "END" }
+        { text: "දැනට අවශ්‍ය නොවේ", next: "END" }
       ]
     },
     //consultation services state
@@ -269,17 +310,17 @@ const flows = {
       message: "ඔබට අප සමඟ උපදේශන සේවාවක් වෙන්කර ගැනීමට අවශ්‍යද?",
       options: [
         { text: "ඔව්", next: "HUMAN" },
-        { text: "දැන්ම අවශ්‍ය නැත", next: "END" }
+        { text: "දැනට අවශ්‍ය නොවේ", next: "END" }
       ]
     },
     //human expert contact state
     HUMAN: {
-      message: "කරුණාකර අප අමතන්න:",
+      message: "වැඩි විස්තර සඳහා කරුණාකර අප හා සම්බන්ධ වන්න:",
       contact: true
     },
     //end state
     END: {
-      message: "ස්තූතියි. ඔබට ඕනෑම වෙලාවක අප අමතන්න.",
+      message: "ස්තූතියි. ඔබට ඕනෑම වේලාවක අප හා සම්බන්ධ විය හැක.",
       end: true
     },
     //fallback state for unrecognized inputs
@@ -294,15 +335,15 @@ const flows = {
       message: "මෙන්න සාමාන්‍යයෙන් අසන ප්‍රශ්න:",
       options: [
         { text: "ඔබ සපයන සේවාවන් මොනවාද?", next: "SERVICES" },
-        { text: "මම කෙසේ සෙෂන් එකක් වෙන් කර ගත හැකිද?", next: "SESSION" },
-        { text: "වෘත්තීය විශේෂඥයෙකු අමතන්න", next: "HUMAN" }
+        { text: "මට සෙෂන් එකක් වෙන් කරගන්න කොහොමද?", next: "SESSION" },
+        { text: "වෘත්තීය විශේෂඥයෙකුට සම්බන්ධ වන්න", next: "HUMAN" }
       ]
     },
     FEEDBACK: {
       message: "අපි ඔබේ ප්‍රතිචාරයට වටිනාකමක් දෙමු. කරුණාකර ඔබේ අදහස් බෙදාගන්න:",
       options: [
         { text: "ප්‍රතිචාර ලබාදෙන්න", next: "FEEDBACK_FORM" },
-        { text: "දැන් අවශ්‍ය නැත", next: "END" }
+        { text: "දැනට අවශ්‍ය නොවේ", next: "END" }
       ]
     }
   }

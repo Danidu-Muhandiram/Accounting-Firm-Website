@@ -34,6 +34,7 @@
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
   z-index: 1;
+  will-change: transform;
 }
 .chatbot-carousel-card.active {
   opacity: 1;
