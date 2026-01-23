@@ -170,6 +170,7 @@ const flows = {
         { text: "Contact a human expert", next: "HUMAN" }
       ]
     },
+    //Feedback state
     FEEDBACK: {
       message: "We value your feedback. Please share your thoughts:",
       options: [
@@ -206,6 +207,66 @@ const flows = {
     ]
   },
 
+  //office visit booking state
+  OFFICE_VISIT: {
+    message: "Our office is located at 123 Main Street, Colombo. We are open from 8:00 AM to 6:00 PM every day (excluding public holidays). Please visit us at your convenience.",
+    options: [
+      { text: "Back to Session Options", next: "SESSION" },
+      { text: "End", next: "END" }
+    ]
+  },
+
+  //call back request state
+  CALL_BACK_REQUEST: {
+    message: "Please provide your preferred contact method via the options below. Our team will get back to you as soon as possible.",
+    options: [
+      { text: "Phone", next: "CONTACT_PHONE" },
+      { text: "Email", next: "CONTACT_EMAIL" },
+      { text: "WhatsApp", next: "CONTACT_WHATSAPP" },
+      { text: "Back to Session Options", next: "SESSION" }
+    ]
+  },
+
+  //contact via phone state
+    CONTACT_PHONE: {
+    message: "Please enter your phone number. Our team will contact you as soon as possible.",
+    input: "text",
+    inputType: "phone",
+    placeholder: "e.g., +94 77 123 4567",
+    next: "CONTACT_CONFIRMATION"
+  },
+
+  //contact via email state
+    CONTACT_EMAIL: {
+    message: "Please enter your email address. Our team will get back to you as soon as possible.",
+    input: "text",
+    inputType: "email",
+    placeholder: "e.g., example@email.com",
+    next: "CONTACT_CONFIRMATION"
+  },
+
+  //contact via whatsapp state
+    CONTACT_WHATSAPP: {
+    message: "Please enter your WhatsApp number. Our team will contact you as soon as possible.",
+    input: "text",
+    inputType: "phone",
+    placeholder: "e.g., +94 77 123 4567",
+    next: "CONTACT_CONFIRMATION"
+  },
+
+  //contact confirmation state
+    CONTACT_CONFIRMATION: {
+    message: "Thank you! We have received your contact details and will get back to you shortly.",
+    options: [
+      { text: "Back to Main Menu", next: "WELCOME" },
+      { text: "End Chat", next: "END" }
+    ]
+  },
+
+
+
+
+
 
   //Sinhala language content
   si: {
@@ -230,33 +291,33 @@ const flows = {
       carousel: [
         {
           image: "images/chatbot-our_services.jpg",
-          title: "Our Services",
-          description: "Explore all the services we offer for individuals and businesses.",
-          button: { text: "View Services", action: function() { renderState('SERVICES'); } }
+          title: "අපගේ සේවාවන්",
+          description: "පුද්ගලයන් සහ ව්‍යාපාර සඳහා අප සපයන සියලුම සේවාවන් සොයා බලන්න.",
+          button: { text: "සේවාවන් බැලීම", action: function() { renderState('SERVICES'); } }
         },
         {
           image: "images/chatbot-book_session.jpg",
-          title: "Book a Session",
-          description: "Easily schedule a meeting or consultation with our experts.",
-          button: { text: "Book Now", action: function() { renderState('SESSION'); } }
+          title: "සෙෂන් එකක් වෙන් කරන්න",
+          description: "අපගේ විශේෂඥයින් සමඟ හමුවීම හෝ උපදේශන සෙෂන් එකක් පහසුවෙන් වෙන් කරගන්න.",
+          button: { text: "දැන් වෙන් කරන්න", action: function() { renderState('SESSION'); } }
         },
         {
           image: "images/chatbot-expert.jpg",
-          title: "Talk to a Professional Expert",
-          description: "Connect with a professional for personalized accounting advice.",
-          button: { text: "Talk Now", action: function() { renderState('HUMAN'); } }
+          title: "වෘත්තීය විශේෂඥයෙකු සමඟ කතා කරන්න",
+          description: "ඔබට සෙෂන් එකක් වෙන් කරගැනීමට පෙර අපගේ වෘත්තීය විශේෂඥයකුගේ උපදෙස් දැන ගැනිමට අවශ්‍යද?",
+          button: { text: "දැන් කතා කරන්න", action: function() { renderState('HUMAN'); } }
         },
         {
           image: "images/chatbot-AI.jpg",
-          title: "Chat with our AI Assistant",
-          description: "Get instant answers and support from our AI-powered assistant.",
-          button: { text: "Start Chat", action: function() { renderState('AI_ASSISTANT'); } }
+          title: "අපගේ AI සහකරු සමඟ කතා කරන්න",
+          description: "ඉක්මන් පිළිතුරු සහ සහාය ලබා ගැනීමට PALO, AI සහකරු සමඟ කතා කරන්න.",
+          button: { text: "කතා කරන්න", action: function() { renderState('AI_ASSISTANT'); } }
         },
         {
           image: "images/chatbot-about_us.jpg",
-          title: "About Us",
-          description: "Learn more about our firm, our values, and our team of experts.",
-          button: { text: "About Us", action: function() { renderState('ABOUT_US'); } }
+          title: "අප ගැන",
+          description: "අපගේ ආයතනය, අපගේ අගයන් සහ අපගේ විශේෂඥයින්ගේ කණ්ඩායම ගැන වැඩි විස්තර දැනගන්න.",
+          button: { text: "අප ගැන", action: function() { renderState('ABOUT_US'); } }
         }
       ]
     
@@ -404,7 +465,66 @@ const flows = {
         { text: "උපදේශන සේවාවක් වෙන්කරන්න", next: "CONSULTATION" },
         { text: "දැනට අවශ්‍ය නැහැ", next: "END" }
       ]
+    },
+
+    //office visit booking state
+    OFFICE_VISIT: {
+      message: "අපගේ කාර්යාලය කොළඹ, ප්‍රධාන වීදිය 123 අංකය යි. අපි සෑම දිනකම උදෑසන 8 සිට සවස 6 දක්වා සේවය කරමු (ජනතා නිවාඩු වලින් ඉවත්). කරුණාකර ඔබට සුදුසු වේලාවේ පැමිණෙන්න.",
+      options: [
+        { text: "සෙෂන් විකල්ප වෙත ආපසු යන්න", next: "SESSION" },
+        { text: "නිම කරන්න", next: "END" }
+      ]
+    },
+
+    //call back request state
+    CALL_BACK_REQUEST: {
+      message: "කරුණාකර පහත දක්වා ඇති සම්බන්ධතා විකල්ප වලින් ඔබේ කැමති සම්බන්ධ කිරීමේ ක්‍රමය ලබා දෙන්න. අපගේ කණ්ඩායම හැකි ඉක්මනින් ඔබව අමතා පිළිතුරු ලබා දෙයි.",
+      options: [
+        { text: "දුරකථන", next: "CONTACT_CONFIRMATION" },
+        { text: "ඊ-මේල්", next: "CONTACT_CONFIRMATION" },
+        { text: "WhatsApp", next: "CONTACT_CONFIRMATION" },
+        { text: "සෙෂන් විකල්ප වෙත ආපසු යන්න", next: "SESSION" }
+      ]
+    },
+
+    //contact via phone state
+    /*CONTACT_PHONE: {
+      message: "කරුණාකර ඔබේ දුරකථන අංකය ඇතුළත් කරන්න. අපගේ කණ්ඩායම හැකි ඉක්මනින් ඔබව අමතා පිළිතුරු ලබා දෙයි.",
+      input: "text",
+      inputType: "phone",
+      placeholder: "උදාහරණය: +94 77 123 4567",
+      next: "CONTACT_CONFIRMATION"
+    },
+
+    //contact via email state
+    CONTACT_EMAIL: {
+      message: "කරුණාකර ඔබේ ඊ-මේල් ලිපිනය ඇතුළත් කරන්න. අපගේ කණ්ඩායම හැකි ඉක්මනින් ඔබව අමතා පිළිතුරු ලබා දෙයි.",
+      input: "text",
+      inputType: "email",
+      placeholder: "උදාහරණය: example@email.com",
+      next: "CONTACT_CONFIRMATION"
+    },
+
+    //contact via whatsapp state
+    CONTACT_WHATSAPP: {
+      message: "කරුණාකර ඔබේ WhatsApp අංකය ඇතුළත් කරන්න. අපගේ කණ්ඩායම හැකි ඉක්මනින් ඔබව අමතා පිළිතුරු ලබා දෙයි.",
+      input: "text",
+      inputType: "phone",
+      placeholder: "උදාහරණය: +94 77 123 4567",
+      next: "CONTACT_CONFIRMATION"
+    },*/
+
+    //contact confirmation state
+    CONTACT_CONFIRMATION: {
+      message: "කණගාටුයි. ආපසු ඇමතුම් ලබාදීමේ සේවාව තාවකාලිකව නවතා ඇත. කරුණාකර CONTACT US මගින් හෝ paloaccounting@gmail.com මගින් ඔබගේ අවශ්‍යතාව විමසන්න. අපගේ ඔබ හා ඉක්මනින් සම්බන්ද වෙනු ඇත.",
+      options: [
+        { text: "ප්‍රධාන මෙනුවට ආපසු යන්න", next: "WELCOME" },
+        { text: "නිම කරන්න", next: "END" }
+      ]
     }
+
+
+
 
   }
 };
