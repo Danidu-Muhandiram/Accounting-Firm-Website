@@ -179,6 +179,34 @@ const flows = {
     }
   },
 
+    //payroll services state
+    PAYROLL: {
+    message: "We provide payroll management services, handling employee salary calculations and records.",
+    options: [
+      { text: "Book Consultation", next: "CONSULTATION" },
+      { text: "Not Now", next: "END" }
+    ]
+  },
+
+  //auditing services state
+  AUDITING: {
+    message: "We provide auditing services to ensure your reports and accounting systems are accurate and compliant.",
+    options: [
+      { text: "Book Consultation", next: "CONSULTATION" },
+      { text: "Not Now", next: "END" }
+    ]
+  },
+
+  //business registration services state
+  BUSINESS_REGISTRATION: {
+    message: "We provide business registration services, assisting with new business registration and obtaining necessary licenses.",
+    options: [
+      { text: "Book Consultation", next: "CONSULTATION" },
+      { text: "Not Now", next: "END" }
+    ]
+  },
+
+
   //Sinhala language content
   si: {
 
@@ -339,12 +367,44 @@ const flows = {
         { text: "වෘත්තීය විශේෂඥයෙකුට සම්බන්ධ වන්න", next: "HUMAN" }
       ]
     },
+
+    //feedback state
     FEEDBACK: {
       message: "අපි ඔබේ ප්‍රතිචාරයට වටිනාකමක් දෙමු. කරුණාකර ඔබේ අදහස් බෙදාගන්න:",
       options: [
         { text: "ප්‍රතිචාර ලබාදෙන්න", next: "FEEDBACK_FORM" },
         { text: "දැනට අවශ්‍ය නොවේ", next: "END" }
       ]
+    },
+
+    //payroll services state
+    PAYROLL: {
+      message: "අපි වැටුප් කළමනාකරණ සේවාවන් සපයන්නෙමු, ඔබේ සේවක වැටුප් ගණනය සහ නඩත්තු කිරීම අපගේ වගකීම වේ.",
+      options: [
+        { text: "උපදේශන සේවාවක් වෙන්කරන්න", next: "CONSULTATION" },
+        { text: "දැනට අවශ්‍ය නැහැ", next: "END" }
+      ]
+    },
+
+
+    //auditing services state
+    AUDITING: {
+      message: "අපි විගණන සේවාවන් සපයන්නෙමු, ඔබේ වාර්තා සහ ගිණුම් පද්ධතිය නිවැරදිව පරීක්ෂා කරවීම සඳහා.",
+      options: [
+        { text: "උපදේශන සේවාවක් වෙන්කරන්න", next: "CONSULTATION" },
+        { text: "දැනට අවශ්‍ය නැහැ", next: "END" }
+      ]
+    },
+
+
+    //business registration services state
+    BUSINESS_REGISTRATION: {
+      message: "අපි ව්‍යාපාර ලියාපදිංචි කිරීමේ සේවාවන් සපයන්නෙමු, නව ව්‍යාපාර ලියාපදිංචි කිරීම සහ නියමිත බලපත්‍ර ලබා ගැනීම සඳහා.",
+      options: [
+        { text: "උපදේශන සේවාවක් වෙන්කරන්න", next: "CONSULTATION" },
+        { text: "දැනට අවශ්‍ය නැහැ", next: "END" }
+      ]
     }
+
   }
 };
