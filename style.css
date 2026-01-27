@@ -1,3 +1,10 @@
+.highlight-text.text-white {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+}
 /* Chatbot Carousel Styles */
 .chatbot-carousel-wrapper {
   width: 100%;
