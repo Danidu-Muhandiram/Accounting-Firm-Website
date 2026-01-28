@@ -232,5 +232,20 @@ document.addEventListener('mouseup', () => {
             $('.scroll-indicator').fadeIn(300);
         }
     });
+    
+    // Services horizontal scrolling with arrows
+    $('.services-arrow.right').on('click', function(){
+        const $wrapper = $(this).closest('.services-scroll-wrapper');
+        const $track = $wrapper.find('.services-track');
+        const amount = $wrapper.width() * 0.7; // scroll by 70% of visible width
+        $track.animate({scrollLeft: $track.scrollLeft() + amount}, 400);
+    });
+
+    $('.services-arrow.left').on('click', function(){
+        const $wrapper = $(this).closest('.services-scroll-wrapper');
+        const $track = $wrapper.find('.services-track');
+        const amount = $wrapper.width() * 0.7;
+        $track.animate({scrollLeft: $track.scrollLeft() - amount}, 400);
+    });
             
 });
