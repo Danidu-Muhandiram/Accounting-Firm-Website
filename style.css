@@ -1,3 +1,39 @@
+/* Stretch footer full width, no left gap */
+.footer-stretch {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: #6BB77B;
+  color: #fff;
+  position: relative;
+  left: 0;
+  box-sizing: border-box;
+}
+.footer-stretch .footer-brand h2,
+.footer-stretch .footer-brand p,
+.footer-stretch .footer-brand .social-links a,
+.footer-stretch .bottom-footer p {
+  color: #fff !important;
+}
+.footer-stretch .footer-brand .social-links a {
+  font-size: 2rem;
+  margin: 0 10px;
+  opacity: 0.92;
+  transition: opacity 0.2s;
+}
+.footer-stretch .footer-brand .social-links a:hover {
+  opacity: 1;
+}
+.footer-stretch .bottom-footer {
+  background: #6BB77B;
+  padding: 10px 0 18px 0;
+}
+/* Move blog content section upward over hero */
+.blog-content {
+  margin-top: -90px !important;
+  position: relative;
+  z-index: 2;
+}
+
 .highlight-text.text-white {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
@@ -251,6 +287,10 @@ p, .description, .content, .text {
 .custom-navbar{
   background-color: transparent !important;
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  align-items: center;
+  padding-top: 1rem !important; /* increase navbar vertical padding */
+  padding-bottom: 1rem !important;
+  min-height: 72px; 
 }
 
 .navbar-brand {
@@ -282,7 +322,23 @@ p, .description, .content, .text {
 }
 
 .navbar-button{
-  margin-right: -30px !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-left: 18px !important;
+  align-self: center !important;
+}
+
+.custom-navbar > .container {
+  display: flex;
+  align-items: center;
+}
+.custom-navbar .navbar-collapse {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end;
+}
+.navbar-button{
+  align-self: center !important;
 }
 
 .navbar-button.btn-primary-custom{
