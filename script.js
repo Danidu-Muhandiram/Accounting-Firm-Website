@@ -249,3 +249,112 @@ document.addEventListener('mouseup', () => {
     });
             
 });
+
+// Contact modal loader: fetches the modal fragment and shows it.
+// Adds click handler for links with `open-contact` class.
+$(document).on('click', 'a.open-contact', function(e){
+    e.preventDefault();
+    loadContactModal();
+});
+
+function loadContactModal(){
+    try{
+        if (!document.getElementById('contact-modal-injected')){
+                        fetch('contact-modal.html')
+                        .then(function(resp){ return resp.text(); })
+                        .then(function(html){
+                                injectModalHtml(html);
+                        })
+                        .catch(function(err){
+                                console.warn('Fetch failed, falling back to inline modal template:', err);
+                                // Fallback: inject an inline template (helps when running pages via file://)
+                                var fallbackHtml = `
+<div class="modal fade rounded" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-body p-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 p-0">
+                            <img src="images/contactimage.jpg" alt="Contact Us" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                        </div>
+                        <div class="col-lg-8">
+                            <form action="" class="row p-lg-5 gy-3">
+                                <div class="col-12">
+                                    <h1>We’re Just a Message Away</h1>
+                                    <p>Whether it’s about our services or your financial goals, we’re always ready to assist. Send us a message, and we’ll respond promptly</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="contactEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control mb-3" id="contactEmail" placeholder="you@example.com">
+                                    <label for="contactMessage" class="form-label">Message</label>
+                                    <textarea id="contactMessage" class="form-control mb-3" rows="5" placeholder="Tell us how we can help..."></textarea>
+                                </div>
+                                <div class="col-12 buttons-row">
+                                    <button type="button" class="btn btn-outline-secondary btn-cancel" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary btn-save">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
+                                injectModalHtml(fallbackHtml);
+                        });
+        } else {
+            var modalEl = document.querySelector('#exampleModal');
+            if(modalEl){
+                // attach handlers if not already attached
+                if (!modalEl.dataset.modalEventsAttached){
+                    modalEl.addEventListener('shown.bs.modal', function(){
+                        document.body.classList.add('modal-blur');
+                    });
+                    modalEl.addEventListener('hidden.bs.modal', function(){
+                        document.body.classList.remove('modal-blur');
+                        var injected = document.getElementById('contact-modal-injected');
+                        if(injected) injected.remove();
+                    });
+                    modalEl.dataset.modalEventsAttached = '1';
+                }
+                var modal = new bootstrap.Modal(modalEl);
+                modal.show();
+            }
+        }
+    } catch (err) {
+        console.error('loadContactModal error', err);
+    }
+}
+
+function injectModalHtml(html){
+        var wrapper = document.createElement('div');
+        wrapper.id = 'contact-modal-injected';
+        wrapper.innerHTML = html;
+        document.body.appendChild(wrapper);
+        var modalEl = document.querySelector('#exampleModal');
+        if(modalEl){
+                // ensure blur class is toggled on modal show/hide
+                modalEl.addEventListener('shown.bs.modal', function(){
+                        document.body.classList.add('modal-blur');
+                });
+                modalEl.addEventListener('hidden.bs.modal', function(){
+                        document.body.classList.remove('modal-blur');
+                        // remove injected fragment to keep DOM clean
+                        var injected = document.getElementById('contact-modal-injected');
+                        if(injected) injected.remove();
+                });
+
+                var modal = new bootstrap.Modal(modalEl);
+                modal.show();
+        }
+}

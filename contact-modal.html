@@ -1,0 +1,49 @@
+<!-- Shared contact modal fragment -->
+<div class="modal fade rounded" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content rounded-4">
+
+      <div class="modal-body p-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 p-0">
+              <img src="images/contactimage.jpg" alt="Contact Us" class="img-fluid h-100 w-100" style="object-fit: cover;">
+            </div>
+            <div class="col-lg-8">
+              <form action="" class="row p-lg-5 gy-3">
+                <div class="col-12">
+                  <h1>We’re Just a Message Away</h1>
+                  <p>Whether it’s about our services or your financial goals, 
+                    we’re always ready to assist. Send us a message, and we’ll respond promptly</p>
+                </div>
+                <div class="col-lg-6">
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                </div>
+
+                <div class="col-lg-6">
+                  <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                </div>
+
+                <div class="col-lg-6">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control mb-3" id="contactEmail" placeholder="you@example.com">
+
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea id="contactMessage" class="form-control mb-3" rows="5" placeholder="Tell us how we can help..."></textarea>
+                </div>
+
+                <div class="col-12 buttons-row">
+                  <button type="button" class="btn btn-outline-secondary btn-cancel" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary btn-save">Save changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
