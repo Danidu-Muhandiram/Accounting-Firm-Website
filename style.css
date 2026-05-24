@@ -332,10 +332,12 @@ p, .description, .content, .text {
   display: flex;
   align-items: center;
 }
-.custom-navbar .navbar-collapse {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end;
+@media (min-width: 992px) {
+  .custom-navbar .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end;
+  }
 }
 .navbar-button{
   align-self: center !important;
@@ -2863,11 +2865,37 @@ body .nav-link.active{
   max-width: 150px;
 }
 
+@media (max-width: 768px) {
+  #chatbot {
+    left: 12px;
+    right: 12px;
+    bottom: 88px;
+    width: auto;
+    height: min(75vh, 560px);
+  }
+
+  #chatbot-messages {
+    max-height: none;
+  }
+
+  #chatbot-toggle {
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+  }
+}
+
 /* Dim and blur background when modal is open */
-body.modal-blur > *:not(.modal):not(.modal-backdrop) {
+body.modal-blur > *:not(.modal):not(.modal-backdrop):not(#contact-modal-injected) {
   filter: blur(4px) saturate(0.95);
   transition: filter 200ms ease;
   pointer-events: none;
+}
+
+body.modal-blur #contact-modal-injected {
+  filter: none;
+  pointer-events: auto;
 }
 
 /* Slightly darker Bootstrap backdrop */
