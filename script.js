@@ -281,8 +281,8 @@ function loadContactModal(){
                         <div class="col-lg-8">
                             <form action="" class="row p-lg-5 gy-3">
                                 <div class="col-12">
-                                    <h1>We’re Just a Message Away</h1>
-                                    <p>Whether it’s about our services or your financial goals, we’re always ready to assist. Send us a message, and we’ll respond promptly</p>
+                                    <h1>We're Just a Message Away</h1>
+                                    <p>Whether it's about our services or your financial goals, we're always ready to assist. Send us a message, and we'll respond promptly</p>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="exampleFormControlInput1" class="form-label">First Name</label>
