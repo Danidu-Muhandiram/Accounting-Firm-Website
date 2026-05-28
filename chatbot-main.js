@@ -15,6 +15,9 @@ messages.parentNode.insertBefore(options, messages.nextSibling);
 const inputField = document.getElementById("chatbot-text");
 // Send button for submitting user messages
 const sendButton = document.getElementById("chatbot-send");
+const mainMenuButton = document.getElementById("chatbot-main-menu");
+const aiButton = document.getElementById("chatbot-ai");
+const quickActions = document.getElementById("chatbot-quick-actions");
 
 
 //start chatbot
@@ -36,6 +39,20 @@ messages.insertBefore(dateHeader, messages.firstChild);
 
 // Render initial state
 renderState("HOME");
+
+function showQuickActions() {
+  if (quickActions) quickActions.style.display = "flex";
+}
+
+function hideQuickActions() {
+  if (quickActions) quickActions.style.display = "none";
+}
+
+window.showQuickActions = showQuickActions;
+window.hideQuickActions = hideQuickActions;
+
+hideQuickActions();
+window.quickActionsEnabled = false;
 
 
 //user input handling
@@ -64,6 +81,20 @@ sendButton.addEventListener("click", () => {
     }
   }
 });
+
+if (mainMenuButton) {
+  mainMenuButton.addEventListener("click", () => {
+    renderState("WELCOME");
+  });
+}
+
+if (aiButton) {
+  aiButton.addEventListener("click", () => {
+    const lang = typeof getChatbotLanguage === "function" ? getChatbotLanguage() : "en";
+    const aiState = lang === "si" ? "AI_ASSISTANT_SI" : "AI_ASSISTANT";
+    renderState(aiState);
+  });
+}
 
 // Event listener for Enter key
 inputField.addEventListener("keypress", (e) => {
@@ -101,4 +132,6 @@ clearButton.addEventListener("click", () => {
   messages.innerHTML = "";
   // Reset chatbot to initial welcome state
   renderState("HOME");
+  window.quickActionsEnabled = false;
+  hideQuickActions();
 });

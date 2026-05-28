@@ -31,10 +31,29 @@ function handleUserResponse(userText) {
 // Expose to main
 window.isWaitingForName = isWaitingForName;
 window.handleUserResponse = handleUserResponse;
+window.getChatbotLanguage = function() {
+    return currentLanguage;
+};
+window.hasChatbotName = function() {
+    return Boolean(userContext.name);
+};
 
 function renderState(stateName) {
     currentState = stateName;
     clearOptions(); // clear old buttons
+
+    // Reset AI mode unless explicitly enter an AI state
+    aiMode = false;
+
+    if (stateName === "WELCOME") {
+        window.quickActionsEnabled = true;
+    }
+
+    if (typeof window.showQuickActions === "function") {
+        if (window.quickActionsEnabled) {
+            window.showQuickActions();
+        }
+    }
 
     // AI Check
     if (stateName === "AI_ASSISTANT" || stateName === "AI_ASSISTANT_SI") {
