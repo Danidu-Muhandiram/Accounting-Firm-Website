@@ -131,7 +131,7 @@ $(window).on("scroll", updateActiveNav);
             $(".service-box").each(function (index) {
                 setTimeout(() => {
                 $(this).fadeTo(1000, 1).addClass("service-box-show");
-                }, index * 1500);
+                }, index * 500);
             });
 
             $(window).off("scroll", revealServices);
