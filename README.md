@@ -16,7 +16,34 @@ The project combines a static marketing website with a modular chatbot architect
 
 [![🌐 Live Website](https://img.shields.io/badge/🌐_Live_Website-Visit-ff6b2b?style=for-the-badge)](https://paloaccounting.vercel.app/)
 
+## 📸 Application Screenshots
 
+A quick visual overview of the Palo Accounting website and AI chatbot system across desktop and mobile views.
+
+### 🖥️ Desktop Views
+
+| Home Page | Services Page |
+|-----------|---------------|
+| ![Home](images/paloss1.jpg) | ![Services](images/paloss2.jpg) |
+
+| Blog Page | Chatbot Interface |
+|-----------|-------------------|
+| ![Blog](images/paloss3.png) | ![Chatbot](images/paloss4.png) |
+
+---
+
+### 📱 Mobile Responsive View
+
+The platform is fully responsive and optimized for mobile devices.
+
+<details>
+<summary>📱 Click to view mobile screenshot</summary>
+
+<br>
+
+<img src="images/paloss5.png" width="320" />
+
+</details>
 
 ## Core Features
 
