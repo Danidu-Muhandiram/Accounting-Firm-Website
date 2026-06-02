@@ -26,11 +26,10 @@ A quick visual overview of the Palo Accounting website and AI chatbot system acr
 |-----------|---------------|
 | ![Home](images/paloss1.jpg) | ![Services](images/paloss2.jpg) |
 
-| Blog Page | Chatbot Interface |
+| Chatbot Interface | Chatbot Interface |
 |-----------|-------------------|
 | ![Blog](images/paloss3.png) | ![Chatbot](images/paloss4.png) |
 
----
 
 ### 📱 Mobile Responsive View
 
@@ -212,15 +211,6 @@ Fix:
 - Tune temperature and max token settings
 
 
+## 📄 License
 
----
-
-## Quick Start
-
-Frontend:
-http-server -c-1 . -p 8080
-
-Backend:
-cd chatbot-backend
-npm install
-npm start
+MIT License
